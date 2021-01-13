@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>解决hexo图片无法显示问题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="今天说一个致命问题：博客上不能添加图片。 淡然遇到问题就要查一下怎么解决，然后一百度，你抄我，我抄你。  最终我还是找到了一种方法。 修改配置文件打开_config.yml文件，找到post_asset_folder，将后面的false改成true，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。 安装插件在安装之前我先说一点，我也不知为什么用npm会报错，所以我先装了个yar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决hexo图片无法显示问题">
+<meta property="og:url" content="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天说一个致命问题：博客上不能添加图片。 淡然遇到问题就要查一下怎么解决，然后一百度，你抄我，我抄你。  最终我还是找到了一种方法。 修改配置文件打开_config.yml文件，找到post_asset_folder，将后面的false改成true，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。 安装插件在安装之前我先说一点，我也不知为什么用npm会报错，所以我先装了个yar">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg">
+<meta property="article:published_time" content="2021-01-13T08:58:00.000Z">
+<meta property="article:modified_time" content="2021-01-13T09:01:00.526Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Magic-Matrix.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-解决hexo图片无法显示问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2021-01-13T08:58:00.000Z" itemprop="datePublished">2021-01-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      解决hexo图片无法显示问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天说一个致命问题：博客上不能添加图片。</p>
+<p>淡然遇到问题就要查一下怎么解决，然后一百度，你抄我，我抄你。</p>
+<p><img src="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg" alt="2021-1-13-16-33"></p>
+<p>最终我还是找到了一种方法。</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开<code>_config.yml</code>文件，找到<code>post_asset_folder</code>，将后面的<code>false</code>改成<code>true</code>，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。</p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>在安装之前我先说一点，我也不知为什么用<code>npm</code>会报错，所以我先装了个<code>yarn</code>，用这个去安装。安装<code>yarn</code>的指令如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g  yarn</span><br></pre></td></tr></table></figure>
+<p>接下来用继续打指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image</span><br></pre></td></tr></table></figure>
+<p>等待一会就安装完毕了。</p>
+<h3 id="markdown添加图片方法"><a href="#markdown添加图片方法" class="headerlink" title="markdown添加图片方法"></a>markdown添加图片方法</h3><p>基本上就可以添加图片了，使用markdown添加图片的语句：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">随便起个名字</span>](<span class="link">./文件夹/图片名</span>)</span><br></pre></td></tr></table></figure>
+<p>这里有几点需要注意：</p>
+<ul>
+<li>windows一定用<code>./</code>开头，虽然不加也可以识别，但hexo不识别，所以养成习惯加上吧。</li>
+<li>一定用<code>/</code>，而不是<code>\</code>，同样也会不识别的。</li>
+</ul>
+<p>接下来就从本地可以检查一下了，或用<code>hexo d</code>拉上去</p>
+<blockquote>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1D7411U7Yk?from=search&seid=408704681372427777">https://www.bilibili.com/video/BV1D7411U7Yk?from=search&amp;seid=408704681372427777</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" data-id="ckjv72trl0001twume2syclr6" data-title="解决hexo图片无法显示问题" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在Github上搭建静态博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">解决hexo图片无法显示问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">在Github上搭建静态博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

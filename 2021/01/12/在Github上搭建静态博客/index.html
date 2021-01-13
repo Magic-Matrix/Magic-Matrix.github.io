@@ -4,15 +4,40 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>在Github上搭建静态博客 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://magic-matrix.github.io/index.html">
+  <meta name="description" content="我用过几个博客，虽然感觉操作简单，但感觉不太友好，而且广告巨多，所以打算自己建博客。 但服务器的价格让我知道一件事情。   但也不是没办法，还是能白嫖一种方法，就是在Github上搭建出来，而且你所看到的这个博客就是在Github上搭建出来的。   这篇文章主要来讲一下在搭建博客的方法，以下为目录： [toc] Node.js的下载和安装我使用的是Hexo是基于Node.js的静态博客框架，所以必">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Github上搭建静态博客">
+<meta property="og:url" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="我用过几个博客，虽然感觉操作简单，但感觉不太友好，而且广告巨多，所以打算自己建博客。 但服务器的价格让我知道一件事情。   但也不是没办法，还是能白嫖一种方法，就是在Github上搭建出来，而且你所看到的这个博客就是在Github上搭建出来的。   这篇文章主要来讲一下在搭建博客的方法，以下为目录： [toc] Node.js的下载和安装我使用的是Hexo是基于Node.js的静态博客框架，所以必">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-1-12-15-19.jpg">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-1-12-15-17.jpeg">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_15-42-43.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_17-46-06.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-1-12-15-20.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_18-01-42.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_18-24-43.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_18-33-14.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_18-38-16.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_18-42-35.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_18-47-10.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_20-32-33.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_20-26-58.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_20-41-18.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_19-20-55.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_20-00-10.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_20-02-18.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_20-07-59.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_21-00-21.png">
+<meta property="og:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-01-12_21-04-48.png">
+<meta property="article:published_time" content="2021-01-12T12:40:25.000Z">
+<meta property="article:modified_time" content="2021-01-13T09:00:00.158Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://magic-matrix.github.io/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/2021-1-12-15-19.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,69 +94,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-解决hexo图片无法显示问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" class="article-date">
-  <time class="dt-published" datetime="2021-01-13T08:58:00.000Z" itemprop="datePublished">2021-01-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">解决hexo图片无法显示问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>今天说一个致命问题：博客上不能添加图片。</p>
-<p>淡然遇到问题就要查一下怎么解决，然后一百度，你抄我，我抄你。</p>
-<p><img src="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg" alt="2021-1-13-16-33"></p>
-<p>最终我还是找到了一种方法。</p>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开<code>_config.yml</code>文件，找到<code>post_asset_folder</code>，将后面的<code>false</code>改成<code>true</code>，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。</p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>在安装之前我先说一点，我也不知为什么用<code>npm</code>会报错，所以我先装了个<code>yarn</code>，用这个去安装。安装<code>yarn</code>的指令如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g  yarn</span><br></pre></td></tr></table></figure>
-<p>接下来用继续打指令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image</span><br></pre></td></tr></table></figure>
-<p>等待一会就安装完毕了。</p>
-<h3 id="markdown添加图片方法"><a href="#markdown添加图片方法" class="headerlink" title="markdown添加图片方法"></a>markdown添加图片方法</h3><p>基本上就可以添加图片了，使用markdown添加图片的语句：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">随便起个名字</span>](<span class="link">./文件夹/图片名</span>)</span><br></pre></td></tr></table></figure>
-<p>这里有几点需要注意：</p>
-<ul>
-<li>windows一定用<code>./</code>开头，虽然不加也可以识别，但hexo不识别，所以养成习惯加上吧。</li>
-<li>一定用<code>/</code>，而不是<code>\</code>，同样也会不识别的。</li>
-</ul>
-<p>接下来就从本地可以检查一下了，或用<code>hexo d</code>拉上去</p>
-<blockquote>
-<p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1D7411U7Yk?from=search&seid=408704681372427777">https://www.bilibili.com/video/BV1D7411U7Yk?from=search&amp;seid=408704681372427777</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" data-id="ckjv72trl0001twume2syclr6" data-title="解决hexo图片无法显示问题" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-在Github上搭建静态博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-在Github上搭建静态博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" class="article-date">
   <time class="dt-published" datetime="2021-01-12T12:40:25.000Z" itemprop="datePublished">2021-01-12</time>
@@ -144,8 +107,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/12/%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">在Github上搭建静态博客</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      在Github上搭建静态博客
     </h1>
   
 
@@ -265,11 +228,23 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
+  
+    <a href="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          解决hexo图片无法显示问题
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 
 </section>
