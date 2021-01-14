@@ -17,20 +17,22 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"magic-matrix.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"magic-matrix.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="今天说一个致命问题：博客上不能添加图片。 淡然遇到问题就要查一下怎么解决，然后一百度，你抄我，我抄你。  最终我还是找到了一种方法。 修改配置文件打开_config.yml文件，找到post_asset_folder，将后面的false改成true，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。 安装插件在安装之前我先说一点，我也不知为什么用npm会报错，所以我先装了个yar">
+  <meta name="description" content="今天说一个致命问题：博客上不能添加图片。 当然遇到问题就要查一下怎么解决，结果一百度，你抄我，我抄你。  最终我还是找到了一种方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决hexo图片无法显示问题">
 <meta property="og:url" content="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="MatrixBlog">
-<meta property="og:description" content="今天说一个致命问题：博客上不能添加图片。 淡然遇到问题就要查一下怎么解决，然后一百度，你抄我，我抄你。  最终我还是找到了一种方法。 修改配置文件打开_config.yml文件，找到post_asset_folder，将后面的false改成true，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。 安装插件在安装之前我先说一点，我也不知为什么用npm会报错，所以我先装了个yar">
+<meta property="og:description" content="今天说一个致命问题：博客上不能添加图片。 当然遇到问题就要查一下怎么解决，结果一百度，你抄我，我抄你。  最终我还是找到了一种方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg">
 <meta property="article:published_time" content="2021-01-13T08:58:00.000Z">
-<meta property="article:modified_time" content="2021-01-13T09:01:00.526Z">
+<meta property="article:modified_time" content="2021-01-14T05:47:42.042Z">
 <meta property="article:author" content="Matrix">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="解决问题">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://magic-matrix.github.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg">
 
@@ -148,6 +150,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -184,9 +187,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-13 16:58:00 / 修改时间：17:01:00" itemprop="dateCreated datePublished" datetime="2021-01-13T16:58:00+08:00">2021-01-13</time>
+              <time title="创建时间：2021-01-13 16:58:00" itemprop="dateCreated datePublished" datetime="2021-01-13T16:58:00+08:00">2021-01-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-14 13:47:42" itemprop="dateModified" datetime="2021-01-14T13:47:42+08:00">2021-01-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">搭建博客</span></a>
+                </span>
             </span>
 
           
@@ -201,9 +219,11 @@
 
       
         <p>今天说一个致命问题：博客上不能添加图片。</p>
-<p>淡然遇到问题就要查一下怎么解决，然后一百度，你抄我，我抄你。</p>
+<p>当然遇到问题就要查一下怎么解决，结果一百度，你抄我，我抄你。</p>
 <p><img src="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg" alt="2021-1-13-16-33"></p>
 <p>最终我还是找到了一种方法。</p>
+<a id="more"></a>
+
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开<code>_config.yml</code>文件，找到<code>post_asset_folder</code>，将后面的<code>false</code>改成<code>true</code>，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。</p>
 <h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>在安装之前我先说一点，我也不知为什么用<code>npm</code>会报错，所以我先装了个<code>yarn</code>，用这个去安装。安装<code>yarn</code>的指令如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g  yarn</span><br></pre></td></tr></table></figure>
@@ -228,8 +248,33 @@
     
     
     
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Matrix 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Matrix 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 博客</a>
+              <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 解决问题</a>
+          </div>
 
         
 
@@ -321,13 +366,33 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Magic-Matrix" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Magic-Matrix" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/97371740" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;97371740" rel="noopener" target="_blank"><i class="fa fa-fw fa-laptop"></i>Bilibili</a>
+      </span>
+  </div>
 
 
 
       </div>
-
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=31134622&auto=0&height=66"></iframe>
     </div>
 
   </aside>
@@ -384,6 +449,7 @@
 <script src="/js/next-boot.js"></script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
 
 
   
@@ -405,6 +471,9 @@
   
 
   
+
 
 </body>
 </html>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
