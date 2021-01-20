@@ -30,9 +30,13 @@
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/left.jpg">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/right.jpg">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/untitled1.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/error.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2021-01-20_12-26-32.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/3e0200b4dbbc34d2f96e20aa5e072c1ff4a.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/1540352487792d4ddd977c6.gif">
 <meta property="article:published_time" content="2021-01-19T11:22:21.000Z">
-<meta property="article:modified_time" content="2021-01-19T14:04:33.816Z">
+<meta property="article:modified_time" content="2021-01-20T09:08:50.467Z">
 <meta property="article:author" content="Matrix">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器视觉">
@@ -215,10 +219,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-19 19:22:21 / 修改时间：22:04:33" itemprop="dateCreated datePublished" datetime="2021-01-19T19:22:21+08:00">2021-01-19</time>
+              <time title="创建时间：2021-01-19 19:22:21" itemprop="dateCreated datePublished" datetime="2021-01-19T19:22:21+08:00">2021-01-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-20 17:08:50" itemprop="dateModified" datetime="2021-01-20T17:08:50+08:00">2021-01-20</time>
+              </span>
 
           
 
@@ -250,10 +260,26 @@
 <p>这个特点会体现在两张图片中所有的物体上，而且，如果这个物体非常靠近相机，这种特点就越明显。在接下来的过程中我会用到这个特点进行处理。</p>
 <h3 id="图像相对滑动"><a href="#图像相对滑动" class="headerlink" title="图像相对滑动"></a>图像相对滑动</h3><p>利用以上两张图片的特点，我们可以得出一个结论：<strong>如果两张图都有一个物体，按照左图这个物体坐标的位置，在右图的这个位置向右寻找，一定能找到左图中相同的物体</strong>。</p>
 <p>这样就可以建立一个新的方法匹配这些相同的地方。如图所示，先将两张图片完整重叠在一起，然后让右图片进行向右滑动，在滑动的过程中，一定会有一些物体会大概重合，就例如图中桌角的情况。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.png" alt="double"></p>
-<p>每滑动一次就是移动了一个像素，当滑动了$d$次让一个物体重合的时候，我们可以认为$d$就是当前像素的视差。</p>
-<h3 id="图像整体差值"><a href="#图像整体差值" class="headerlink" title="图像整体差值"></a>图像整体差值</h3><p>大概的方法已经确定下来了，但现在的问题是如何能确定是否某个区域图片已经重合。这里我是使用了减法操作。</p>
-<p><em>（未完待续）</em></p>
+<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.jpg" alt="double"></p>
+<p>每滑动一次就是移动了一个像素，当滑动了$d$个像素，让一个物体部分区域重合的时候，我们可以认为$d$就是当前像素的视差。</p>
+<p>但两张图片不会一直滑动下去，因为没必要，视差值会小于等于整张图片宽度，而等于的情况几乎没有可能，因为一旦等于就意味着物体太靠近相机，导致出现拍摄不全的情况，所以在滑动的时候确定需要滑动多少，太小的话会影响较大的视差部分，太大会加大计算负担，整体时间会增加。我所选的这两张图我预设50次滑动。</p>
+<h3 id="图像整体差值"><a href="#图像整体差值" class="headerlink" title="图像整体差值"></a>图像整体差值</h3><p>大概的方法已经确定下来了，但现在的问题是如何能确定是否某个区域图片已经重合，这里我是使用了减法操作。</p>
+<p>两张图片由于相对滑动，所以可以将重合部分进行相减，而在写程序的时候，可以将左图片的“头部”和右图片的“尾部”去掉就可以保证剩下了重合部分，如图所示。</p>
+<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/error.jpg" alt="error"></p>
+<p>在两张图片重叠的部分进行相减，会得到一个差值矩阵，当两个区域像素值非常接近的时候，进行减法后得到的数值的绝对值会非常的小，因此通过这个矩阵可以观察出，当前滑动$d$像素下哪些区域非常的接近。</p>
+<p>例如，下图是一个模拟出的差值矩阵，若将区域设置成$5*5$，为了进一步比较，将区域A和区域B的数据累加在一起，A区域的累加为24，B区域累加为488，这样说明A区域比较接近，B区域就不太接近，所以A区域更适合当前的视差值$d$（滑动的像素值）。</p>
+<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2021-01-20_12-26-32.png" alt="2021-01-20_12-26-32"></p>
+<p>所以每次滑动图片，需要计算差值矩阵，差值矩阵计算完后，需要划分区域，每个区域的元素需要累加在一起得到一个值，由于一整张图片会有很多区域，每个区域可以排布成一个新的矩阵，暂时称之为损失矩阵。</p>
+<h3 id="通过卷积来计算损失矩阵"><a href="#通过卷积来计算损失矩阵" class="headerlink" title="通过卷积来计算损失矩阵"></a>通过卷积来计算损失矩阵</h3><p>卷积运算在信号中非常常用，同时在图像处理中也有很重要作用。卷积运算需要一个 2 维数据和一个卷积核进行运算。</p>
+<p>卷积为如下过程：卷积核旋转180度，但在大多情况下，卷积核是中心对称结构，所以卷积核旋转180度不会影响最后结果。卷积核相当于一个权重的集合，将卷积核在 一个2 维输入数据上进行滑动，根据对准的位置求出所有的加权和，如图所示为其中一种滑动情况。</p>
+<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/3e0200b4dbbc34d2f96e20aa5e072c1ff4a.jpg" alt="20151012211045222"></p>
+<p>下图为卷积运算的全过程。</p>
+<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/1540352487792d4ddd977c6.gif" alt="1540352487792d4ddd977c6"></p>
+<p>不同的卷积核会产生不同的效果，在这里就不过多介绍卷积核的类型，接下来用到的卷积核是全1矩阵。<br>$$<br>\left[<br>\begin{matrix}<br> 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\<br> 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\<br> 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\<br> 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\<br> 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\<br>\end{matrix}<br>\right]<br>$$<br>这种全是1的矩阵可以将每个区域的所有元素进行累加，这正符合目前的需求，每一次滑动可以说是一次计算当前区域的损失值，只需要一个卷积计算就可以直接出所有区域的损失值，。</p>
+<p>这里巧妙利用了卷积的特点，灵感来自于一款卷积神经网络的论文，详细内容直接看我所提供的链接:</p>
+<p><a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/259441043_OverFeat_Integrated_Recognition_Localization_and_Detection_using_Convolutional_Networks">OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks</a></p>
+<p>由于每次图片相对滑动都可以获得一个差值矩阵，所以经过卷积后，同样还可以获得一个损失矩阵，由于我预设了50次滑动，所以会得到50个损失矩阵。</p>
+<h3 id="从损失矩阵中查找最合适的视差值"><a href="#从损失矩阵中查找最合适的视差值" class="headerlink" title="从损失矩阵中查找最合适的视差值"></a>从损失矩阵中查找最合适的视差值</h3><p><em>（未完待续）</em></p>
 
     </div>
 
@@ -357,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">匹配原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E5%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">两张图片的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9B%B8%E5%AF%B9%E6%BB%91%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">图像相对滑动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%95%B4%E4%BD%93%E5%B7%AE%E5%80%BC"><span class="nav-number">1.3.</span> <span class="nav-text">图像整体差值</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">匹配原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E5%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">两张图片的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9B%B8%E5%AF%B9%E6%BB%91%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">图像相对滑动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%95%B4%E4%BD%93%E5%B7%AE%E5%80%BC"><span class="nav-number">1.3.</span> <span class="nav-text">图像整体差值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%8D%B7%E7%A7%AF%E6%9D%A5%E8%AE%A1%E7%AE%97%E6%8D%9F%E5%A4%B1%E7%9F%A9%E9%98%B5"><span class="nav-number">1.4.</span> <span class="nav-text">通过卷积来计算损失矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%8D%9F%E5%A4%B1%E7%9F%A9%E9%98%B5%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%9C%80%E5%90%88%E9%80%82%E7%9A%84%E8%A7%86%E5%B7%AE%E5%80%BC"><span class="nav-number">1.5.</span> <span class="nav-text">从损失矩阵中查找最合适的视差值</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
