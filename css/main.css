@@ -476,6 +476,10 @@ code {
   padding-left: 10px;
   width: 100%;
 }
+.highlight .code pre ::selection {
+  color: #000;
+  background: #fff;
+}
 .gist table {
   width: auto;
 }
@@ -1192,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #70b647;
+  background: #bad4ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
