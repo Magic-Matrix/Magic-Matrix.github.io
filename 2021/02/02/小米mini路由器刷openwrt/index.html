@@ -20,25 +20,29 @@
     var CONFIG = {"hostname":"magic-matrix.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="解决图片无法上传问题今天说一个致命问题：博客上不能添加图片。 当然遇到问题就要查一下怎么解决，结果一百度，你抄我，我抄你。  最终我还是找到了一种方法。">
+  <meta name="description" content="我打算给小米mini路由器刷一个linux系统。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决hexo一些问题">
-<meta property="og:url" content="https://magic-matrix.gitee.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="小米mini路由器刷openwrt">
+<meta property="og:url" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/index.html">
 <meta property="og:site_name" content="MatrixBlog">
-<meta property="og:description" content="解决图片无法上传问题今天说一个致命问题：博客上不能添加图片。 当然遇到问题就要查一下怎么解决，结果一百度，你抄我，我抄你。  最终我还是找到了一种方法。">
+<meta property="og:description" content="我打算给小米mini路由器刷一个linux系统。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-02-03_19-14-21.png">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-02-03_19-17-05.png">
-<meta property="article:published_time" content="2021-01-13T08:58:00.000Z">
-<meta property="article:modified_time" content="2021-02-03T11:19:42.031Z">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/9150e4e5gw1f8z2t4h3e7j205g05iaa0.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-02_19-08-50.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-02_19-11-39.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-02_19-14-51.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-03_15-49-48.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-03_15-57-27.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-03_16-15-45.png">
+<meta property="article:published_time" content="2021-02-02T02:58:11.000Z">
+<meta property="article:modified_time" content="2021-02-03T10:18:44.535Z">
 <meta property="article:author" content="Matrix">
-<meta property="article:tag" content="解决问题">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="安装">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://magic-matrix.gitee.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg">
+<meta name="twitter:image" content="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/9150e4e5gw1f8z2t4h3e7j205g05iaa0.jpg">
 
-<link rel="canonical" href="https://magic-matrix.gitee.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/">
 
 
 <script id="page-configurations">
@@ -51,7 +55,7 @@
   };
 </script>
 
-  <title>解决hexo一些问题 | MatrixBlog</title>
+  <title>小米mini路由器刷openwrt | MatrixBlog</title>
   
 
 
@@ -191,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -204,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          解决hexo一些问题
+          小米mini路由器刷openwrt
         </h1>
 
         <div class="post-meta">
@@ -214,14 +218,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-13 16:58:00" itemprop="dateCreated datePublished" datetime="2021-01-13T16:58:00+08:00">2021-01-13</time>
+              <time title="创建时间：2021-02-02 10:58:11" itemprop="dateCreated datePublished" datetime="2021-02-02T10:58:11+08:00">2021-02-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 19:19:42" itemprop="dateModified" datetime="2021-02-03T19:19:42+08:00">2021-02-03</time>
+                <time title="修改时间：2021-02-03 18:18:44" itemprop="dateModified" datetime="2021-02-03T18:18:44+08:00">2021-02-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,7 +233,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">搭建博客</span></a>
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">日常折腾</span></a>
                 </span>
             </span>
 
@@ -244,49 +248,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="解决图片无法上传问题"><a href="#解决图片无法上传问题" class="headerlink" title="解决图片无法上传问题"></a>解决图片无法上传问题</h2><p>今天说一个致命问题：博客上不能添加图片。</p>
-<p>当然遇到问题就要查一下怎么解决，结果一百度，你抄我，我抄你。</p>
-<p><img src="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-1-13-16-33.jpg" alt="2021-1-13-16-33"></p>
-<p>最终我还是找到了一种方法。</p>
+        <p>我打算给小米mini路由器刷一个linux系统。</p>
+<p><img src="/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/9150e4e5gw1f8z2t4h3e7j205g05iaa0.jpg" alt="9150e4e5gw1f8z2t4h3e7j205g05iaa0"></p>
 <a id="more"></a>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开<code>_config.yml</code>文件，找到<code>post_asset_folder</code>，将后面的<code>false</code>改成<code>true</code>，这个目的是新建的md文件会附带一个同名文件夹，可以把图片放在这里面。</p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>在安装之前我先说一点，我也不知为什么用<code>npm</code>会报错，所以我先装了个<code>yarn</code>，用这个去安装。安装<code>yarn</code>的指令如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g  yarn</span><br></pre></td></tr></table></figure>
-<p>接下来用继续打指令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image</span><br></pre></td></tr></table></figure>
-<p>等待一会就安装完毕了。</p>
-<h3 id="markdown添加图片方法"><a href="#markdown添加图片方法" class="headerlink" title="markdown添加图片方法"></a>markdown添加图片方法</h3><p>基本上就可以添加图片了，使用markdown添加图片的语句：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">随便起个名字</span>](<span class="link">./文件夹/图片名</span>)</span><br></pre></td></tr></table></figure>
-<p>这里有几点需要注意：</p>
+<p>以下为小米路由器的配置：</p>
 <ul>
-<li>windows一定用<code>./</code>开头，虽然不加也可以识别，但hexo不识别，所以养成习惯加上吧。</li>
-<li>一定用<code>/</code>，而不是<code>\</code>，同样也会不识别的。</li>
+<li>处理器：单核MT7620A 580MHz</li>
+<li>ROM:16MB SPI Flash</li>
+<li>内存:128MB DDR2</li>
+<li>2.4G WiFi2<em>2（最高速率300Mbps）</em></li>
+<li><em>5G WiFi2</em>2（最高速率867Mbps）</li>
+<li>1个USB 2.0接口（DC output：5V/1A）</li>
+<li>2个10/100M自适应LAN口（Auto MDI/MDIX）</li>
+<li>1个10/100M自适应WAN口（Auto MDI/MDIX）</li>
 </ul>
-<p>接下来就从本地可以检查一下了，或用<code>hexo d</code>拉上去</p>
-<blockquote>
-<p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1D7411U7Yk?from=search&amp;seid=408704681372427777">https://www.bilibili.com/video/BV1D7411U7Yk?from=search&amp;seid=408704681372427777</a></p>
-</blockquote>
-<hr>
-<h2 id="解决公式不能显示问题"><a href="#解决公式不能显示问题" class="headerlink" title="解决公式不能显示问题"></a>解决公式不能显示问题</h2><p>hexo-renderer-kramed引擎是在默认的渲染引擎，hexo-renderer-marked的基础上修改了一些bug，两者比较接近，也比较轻量级。</p>
-<p>所以需要先卸载marked渲染引擎，换成marked渲染引擎。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-<h3 id="修改语义冲突"><a href="#修改语义冲突" class="headerlink" title="修改语义冲突"></a>修改语义冲突</h3><p>但其中有几处语义冲突，所以需要去改一下。</p>
-<p>找到<code>node_modules\kramed\lib\rules\inline.js</code>文件</p>
-<p>修改以下两点：</p>
+<p>这种配置下刷上openwrt是非常合适的，但令我感到可惜的是ROM只有16MB，这样也就不能有其他软件了，但目前为止我还用不到，以后打算换个Flash，我记得好像有款是64MB的SPI协议的Flash，我再找找吧。</p>
+<h2 id="刷机前准备"><a href="#刷机前准备" class="headerlink" title="刷机前准备"></a>刷机前准备</h2><ul>
+<li>开发版的小米mini路由器固件</li>
+<li>不死固件（Breed）</li>
+<li>一个u盘</li>
+</ul>
+<p>这些文件我会打包到云盘，直接下载就可以。</p>
+<p>点击下载</p>
+<h2 id="路由器系统更换成开发版"><a href="#路由器系统更换成开发版" class="headerlink" title="路由器系统更换成开发版"></a>路由器系统更换成开发版</h2><p>我所使用路由器的这个版本是2.4.9稳定版，这个版本不能打开ssh，所以我打算换成开发版本，我准备了个开发版本的固件。</p>
+<p>首先浏览器输入<a target="_blank" rel="noopener" href="http://www.miwifi.com/">http://www.miwifi.com/</a>，这是小米wifi的缺省设置页面。在左上角的选项中找到“系统升级”选项。</p>
+<p><img src="/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-02_19-08-50.png" alt="2021-02-02_19-08-50"></p>
+<p>我们接下来是手动升级，把需要刷入的开发版小米固件刷入，按着下图方法升级即可。</p>
+<p><img src="/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-02_19-11-39.png" alt="2021-02-02_19-11-39"></p>
+<p><img src="/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-02_19-14-51.png" alt="2021-02-02_19-11-56"></p>
+<p>更换固件不会浪费太长时间，几分钟就好了，注意更换完后会断网，不用在意重新连接就可以。</p>
+<p>升级完后，选择中继工作模式，因为这样可以暂时顺利上网，然后正常连上可以用的wifi即可。</p>
+<p><img src="/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-03_15-49-48.png" alt="2021-02-03_15-49-48"></p>
+<p>注意我们选择的是中继，依然还在一个路由器的局域网环境，所以我们需要新的ip地址进入小米路由器的后台设置，如图所示这就是新的ip。</p>
+<p><img src="/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-03_15-57-27.png" alt="2021-02-03_15-57-27"></p>
+<p>接下来需要手机端安装小米wifi的App，这个目的是用小米账号去绑定路由器，只有绑定我们才能接下来获取ssh密码。</p>
+<p>点击这个网址：<a target="_blank" rel="noopener" href="https://d.miwifi.com/rom/ssh">https://d.miwifi.com/rom/ssh</a>，登录小米账号，可以查看一下是否绑定成功。</p>
+<p><img src="/2021/02/02/%E5%B0%8F%E7%B1%B3mini%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7openwrt/2021-02-03_16-15-45.png" alt="2021-02-03_16-15-45"></p>
+<p>这时会有一个root的密码，了解linux的就知道这个密码的重要性，所以先记一下，我们一会需要使用，放心这个密码只是暂时有用，一会就没用了（所以我给放出来让你们看见了）。</p>
+<p>左边还有个下载工具包，点击下载。</p>
+<p>找个u盘，把下载的工具包放进u盘里。</p>
+<p>接下来注意顺序：</p>
 <ul>
-<li><code>``javascript
-  //escape: /^\\([\\</code><em>{}[]()#$+-.!_&gt;])/,<br>  escape: /^\([`</em>[]()#$+-.!_&gt;])/,<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- &#96;&#96;&#96;javascript</span><br><span class="line">    &#x2F;&#x2F;em: &#x2F;^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)&#x2F;,</span><br><span class="line">    em: &#x2F;^\*((?:\*\*|[\s\S])+?)\*(?!\*)&#x2F;,</span><br></pre></td></tr></table></figure>
-<h3 id="在next主题中加入mathJax开关"><a href="#在next主题中加入mathJax开关" class="headerlink" title="在next主题中加入mathJax开关"></a>在next主题中加入mathJax开关</h3></li>
+<li>先给路由器断电。</li>
+<li>把u盘插在路由器上。</li>
+<li>顶住reset键上电，指示灯由<strong>黄色长亮</strong>到<strong>黄色闪烁</strong>时松开。</li>
 </ul>
-<p>打开<code>_config.yml</code>文件修改以下配置。</p>
-<p><img src="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-02-03_19-14-21.png" alt="2021-02-03_19-14-21"></p>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>当一篇文章用到公式的时候，加入<code>mathjax: true</code>语句，这样就可以添加公式渲染。</p>
-<p><img src="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/2021-02-03_19-17-05.png" alt="2021-02-03_19-17-05"></p>
-<blockquote>
-<p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ssjdoudou/article/details/103318019">https://blog.csdn.net/ssjdoudou/article/details/103318019</a></p>
-</blockquote>
+<p>更新完后输入<a target="_blank" rel="noopener" href="http://d.miwifi.com/rom/ssh">http://d.miwifi.com/rom/ssh</a></p>
+<h2 id="刷不死固件"><a href="#刷不死固件" class="headerlink" title="刷不死固件"></a>刷不死固件</h2><p>其实就是一个引导，就像bios系统一样，负责引导运行系统，这就有个好处，即使系统没装上，路由器也不会变砖。只需要把引导的系统换成新的就可以重新安装。</p>
 
     </div>
 
@@ -317,8 +325,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 解决问题</a>
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 博客</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/%E5%AE%89%E8%A3%85/" rel="tag"><i class="fa fa-tag"></i> 安装</a>
           </div>
 
         
@@ -327,13 +335,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/13/%E8%A7%A3%E5%86%B3hexo%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" rel="prev" title="解决hexo一些问题">
-      <i class="fa fa-chevron-left"></i> 解决hexo一些问题
+    <a href="/2021/01/28/%E5%88%B6%E4%BD%9CMinecraft%E6%95%B0%E6%8D%AE%E5%8C%85/" rel="prev" title="制作Minecraft数据包">
+      <i class="fa fa-chevron-left"></i> 制作Minecraft数据包
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/01/15/%E5%AF%B9Next%E4%B8%BB%E9%A2%98%E8%BF%9B%E8%A1%8C%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE/" rel="next" title="对Next主题进行详细配置">
-      对Next主题进行详细配置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -392,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">解决图片无法上传问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">markdown添加图片方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%83%BD%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">解决公式不能显示问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%AF%AD%E4%B9%89%E5%86%B2%E7%AA%81"><span class="nav-number">2.1.</span> <span class="nav-text">修改语义冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8next%E4%B8%BB%E9%A2%98%E4%B8%AD%E5%8A%A0%E5%85%A5mathJax%E5%BC%80%E5%85%B3"><span class="nav-number">2.2.</span> <span class="nav-text">在next主题中加入mathJax开关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">使用方法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B7%E6%9C%BA%E5%89%8D%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">刷机前准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%8D%A2%E6%88%90%E5%BC%80%E5%8F%91%E7%89%88"><span class="nav-number">2.</span> <span class="nav-text">路由器系统更换成开发版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B7%E4%B8%8D%E6%AD%BB%E5%9B%BA%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">刷不死固件</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
