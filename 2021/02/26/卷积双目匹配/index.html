@@ -23,33 +23,33 @@
   <meta name="description" content="双目立体系统中，匹配算法是必不可少的一个环节，但是当今的双目匹配算法效率并不是非常的理想，我在原有的匹配算法中改进了一种算法，并这种算法甚至可以自成一套体系，我称它为卷积双目匹配。 接下来我会介绍我的算法原理，我的算法步骤主要分成以下几步：  图像相对滑动 图像整体差值 通过卷积来计算损失矩阵 从损失矩阵中查找最合适的视差值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卷积双目匹配">
-<meta property="og:url" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/index.html">
+<meta property="og:url" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/index.html">
 <meta property="og:site_name" content="MatrixBlog">
 <meta property="og:description" content="双目立体系统中，匹配算法是必不可少的一个环节，但是当今的双目匹配算法效率并不是非常的理想，我在原有的匹配算法中改进了一种算法，并这种算法甚至可以自成一套体系，我称它为卷积双目匹配。 接下来我会介绍我的算法原理，我的算法步骤主要分成以下几步：  图像相对滑动 图像整体差值 通过卷积来计算损失矩阵 从损失矩阵中查找最合适的视差值">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/left.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/right.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/untitled1.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/error.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2021-01-20_12-26-32.png">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/3e0200b4dbbc34d2f96e20aa5e072c1ff4a.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/1540352487792d4ddd977c6.gif">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2020-11-20_19-44-40.png">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/coss.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/square.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/which.jpg">
-<meta property="og:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/img.png">
-<meta property="article:published_time" content="2021-01-19T11:22:21.000Z">
-<meta property="article:modified_time" content="2021-02-03T11:37:49.427Z">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/left.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/right.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/untitled1.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/error.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2021-01-20_12-26-32.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/3e0200b4dbbc34d2f96e20aa5e072c1ff4a.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/1540352487792d4ddd977c6.gif">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2020-11-20_19-44-40.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/coss.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/square.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/which.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/img.png">
+<meta property="article:published_time" content="2021-02-26T11:22:21.000Z">
+<meta property="article:modified_time" content="2021-03-07T10:24:31.268Z">
 <meta property="article:author" content="Matrix">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="图像处理">
 <meta property="article:tag" content="双目立体成像">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/left.jpg">
+<meta name="twitter:image" content="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/left.jpg">
 
-<link rel="canonical" href="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/">
+<link rel="canonical" href="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/">
 
 
 <script id="page-configurations">
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/">
+    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -225,14 +225,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-19 19:22:21" itemprop="dateCreated datePublished" datetime="2021-01-19T19:22:21+08:00">2021-01-19</time>
+              <time title="创建时间：2021-02-26 19:22:21" itemprop="dateCreated datePublished" datetime="2021-02-26T19:22:21+08:00">2021-02-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 19:37:49" itemprop="dateModified" datetime="2021-02-03T19:37:49+08:00">2021-02-03</time>
+                <time title="修改时间：2021-03-07 18:24:31" itemprop="dateModified" datetime="2021-03-07T18:24:31+08:00">2021-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,23 +265,23 @@
 </ul>
 <a id="more"></a>
 <p>我会使用下面的两幅图片来进行分析：</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/left.jpg" alt="left"></p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/right.jpg" alt="right"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/left.jpg" alt="left"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/right.jpg" alt="right"></p>
 <h3 id="两张图片的特点"><a href="#两张图片的特点" class="headerlink" title="两张图片的特点"></a>两张图片的特点</h3><p>当左右摆放的相机时，同一个物体在两张图片上的位置会有一个特点：右图片的物体会普遍靠左，左图片物体会靠右。这个现象很容易说明，左相机会照的左面东西多一点，右相机会照右边多一点。</p>
 <p>例如，下图中红色矩形标记的桌角，左图桌角的坐标为（200，190），右图桌角的坐标为（167，190），两张图片的桌角的行坐标为是相同的，都是第190行，但列坐标就不同了，而且左图的列坐标为第200列，右图的列坐标为第167列，很明显左图中桌角和右图中桌角相比较更偏右一点。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/untitled1.jpg" alt="untitled1"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/untitled1.jpg" alt="untitled1"></p>
 <p>这个特点会体现在两张图片中所有的物体上，而且，如果这个物体非常靠近相机，这种特点就越明显。在接下来的过程中我会用到这个特点进行处理。</p>
 <h3 id="图像相对滑动"><a href="#图像相对滑动" class="headerlink" title="图像相对滑动"></a>图像相对滑动</h3><p>利用以上两张图片的特点，我们可以得出一个结论：<strong>如果两张图都有一个物体，按照左图这个物体坐标的位置，在右图的这个位置向右寻找，一定能找到左图中相同的物体</strong>。</p>
 <p>这样就可以建立一个新的方法匹配这些相同的地方。如图所示，先将两张图片完整重叠在一起，然后让右图片进行向右滑动，在滑动的过程中，一定会有一些物体会大概重合，就例如图中桌角的情况。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.jpg" alt="double"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/double.jpg" alt="double"></p>
 <p>每滑动一次就是移动了一个像素，当滑动了$d$个像素，让一个物体部分区域重合的时候，我们可以认为$d$就是当前像素的视差。</p>
 <p>但两张图片不会一直滑动下去，因为没必要，视差值会小于等于整张图片宽度，而等于的情况几乎没有可能，因为一旦等于就意味着物体太靠近相机，导致出现拍摄不全的情况，所以在滑动的时候确定需要滑动多少，太小的话会影响较大的视差部分，太大会加大计算负担，整体时间会增加。我所选的这两张图我预设50次滑动。</p>
 <h3 id="图像整体差值"><a href="#图像整体差值" class="headerlink" title="图像整体差值"></a>图像整体差值</h3><p>大概的方法已经确定下来了，但现在的问题是如何能确定是否某个区域图片已经重合，这里我是使用了减法操作。</p>
 <p>两张图片由于相对滑动，所以可以将重合部分进行相减，而在写程序的时候，可以将左图片的“头部”和右图片的“尾部”去掉就可以保证剩下了重合部分，如图所示。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/error.jpg" alt="error"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/error.jpg" alt="error"></p>
 <p>在两张图片重叠的部分进行相减，会得到一个差值矩阵，当两个区域像素值非常接近的时候，进行减法后得到的数值的绝对值会非常的小，因此通过这个矩阵可以观察出，当前滑动$d$像素下哪些区域非常的接近。</p>
 <p>例如，下图是一个模拟出的差值矩阵，若将区域设置成$5*5$，为了进一步比较，将区域A和区域B的数据累加在一起，A区域的累加为24，B区域累加为488，这样说明A区域比较接近，B区域就不太接近，所以A区域更适合当前的视差值$d$（滑动的像素值）。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2021-01-20_12-26-32.png" alt="2021-01-20_12-26-32"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2021-01-20_12-26-32.png" alt="2021-01-20_12-26-32"></p>
 <p>所以每次滑动图片，需要计算差值矩阵，差值矩阵计算完后，需要划分区域，每个区域的元素需要累加在一起得到一个值，由于一整张图片会有很多区域，每个区域可以排布成一个新的矩阵，暂时称之为损失矩阵。</p>
 <h4 id="python程序"><a href="#python程序" class="headerlink" title="python程序"></a>python程序</h4><ul>
 <li>裁剪图片函数</li>
@@ -293,31 +293,31 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算一次差值矩阵</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">imageDiff</span>(<span class="params">image_right, image_left, step</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    image_right: 右相机图片原图</span></span><br><span class="line"><span class="string">    image_left: 左相机图片原图</span></span><br><span class="line"><span class="string">    step: 滑动的像素值</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    return: 差值矩阵</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 需要改成int16类型，原因如下：</span></span><br><span class="line">    <span class="comment"># 1.无符号类型相减完之后，负数会变成0，所以需要保留负数</span></span><br><span class="line">    <span class="comment"># 2.8位有符号不够用，因为加上了符号位，会丢失最高位的信息</span></span><br><span class="line">    image_left = image_left.astype(np.int16)</span><br><span class="line">    image_right = image_right.astype(np.int16)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 左右图片进行“去头”和“去尾”裁剪</span></span><br><span class="line">    image1_cut = imageCut(image_left, step)</span><br><span class="line">    image2_cut = imageCut(image_right, -step)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 图片相减再取绝对值，即为差值矩阵</span></span><br><span class="line">    image_cut = np.<span class="built_in">abs</span>(image1_cut - image2_cut)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> image_cut</span><br></pre></td></tr></table></figure>
 <h3 id="通过卷积来计算损失矩阵"><a href="#通过卷积来计算损失矩阵" class="headerlink" title="通过卷积来计算损失矩阵"></a>通过卷积来计算损失矩阵</h3><p>卷积运算在信号中非常常用，同时在图像处理中也有很重要作用。卷积运算需要一个 2 维数据和一个卷积核进行运算。</p>
 <p>卷积为如下过程：卷积核旋转180度，但在大多情况下，卷积核是中心对称结构，所以卷积核旋转180度不会影响最后结果。卷积核相当于一个权重的集合，将卷积核在 一个2 维输入数据上进行滑动，根据对准的位置求出所有的加权和，如图所示为其中一种滑动情况。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/3e0200b4dbbc34d2f96e20aa5e072c1ff4a.jpg" alt="20151012211045222"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/3e0200b4dbbc34d2f96e20aa5e072c1ff4a.jpg" alt="20151012211045222"></p>
 <p>下图为卷积运算的全过程。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/1540352487792d4ddd977c6.gif" alt="1540352487792d4ddd977c6"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/1540352487792d4ddd977c6.gif" alt="1540352487792d4ddd977c6"></p>
 <p>不同的卷积核会产生不同的效果，在这里就不过多介绍卷积核的类型，接下来用到的卷积核是全1矩阵。</p>
 <p>这种全是1的矩阵可以将每个区域的所有元素进行累加，这正符合目前的需求，每一次滑动可以说是一次计算当前区域的损失值，只需要一个卷积计算就可以直接出所有区域的损失值，。</p>
 <p>这里巧妙利用了卷积的特点，灵感来自于一款卷积神经网络的论文，详细内容直接看我所提供的链接:</p>
 <p><a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/259441043_OverFeat_Integrated_Recognition_Localization_and_Detection_using_Convolutional_Networks">OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks</a></p>
 <p>当然也可以看下面这张图，那篇文章中对我比较重要的部分。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2020-11-20_19-44-40.png" alt="2020-11-20_19-44-40"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/2020-11-20_19-44-40.png" alt="2020-11-20_19-44-40"></p>
 <p>由于每次图片相对滑动都可以获得一个差值矩阵，所以经过卷积后，同样还可以获得一个损失矩阵，由于我预设了50次滑动，所以会得到50个损失矩阵。</p>
 <h4 id="python程序-1"><a href="#python程序-1" class="headerlink" title="python程序"></a>python程序</h4><ul>
 <li>计算损失矩阵</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeImageCost</span>(<span class="params">image_right, image_left, step, core_size</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    image_right: 右相机图片原图</span></span><br><span class="line"><span class="string">    image_left: 左相机图片原图</span></span><br><span class="line"><span class="string">    step: 滑动的像素值</span></span><br><span class="line"><span class="string">    core_size: 卷积核尺寸</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    return: 损失矩阵（不完整）</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># 调用计算差值矩阵函数，得到差值矩阵</span></span><br><span class="line">    diff = imageDiff(image_right,image_left, step)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 制作卷积核，尺寸为 core_size * core_size 大小的全1矩阵</span></span><br><span class="line">    core = makeCore(core_size)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过卷积计算损失矩阵</span></span><br><span class="line">    cost = myConv(diff, core)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cost</span><br></pre></td></tr></table></figure>
 <h3 id="从损失矩阵中查找最合适的视差值"><a href="#从损失矩阵中查找最合适的视差值" class="headerlink" title="从损失矩阵中查找最合适的视差值"></a>从损失矩阵中查找最合适的视差值</h3><p>目前为止，根据图片滑动50次，已经计算出了50个损失矩阵，但由于相对滑动，重叠的部分越来越小，50个矩阵的宽度并不相同，只有矩阵的行数相同。为了保持所有的损失矩阵宽度相同，需要把矩阵缺失的部分手动补上。由此可见补上的部分会越来越大，补上的部分每次都会增加一个像素宽度，直到滑动结束。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/coss.jpg" alt="coss"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/coss.jpg" alt="coss"></p>
 <p>损失矩阵有个特点，由于卷积前所有值取绝对值，即使经过卷积，所有的值都是正数，为了方便区分补上的部分，补上的值可以使用-1，这样可以保证正数部分是有效的损失。</p>
 <p>有了50个相同大小的矩阵后，将它们排列起来，没有滑动的损失矩阵放在最前面，接着后面是滑动1个像素的损失矩阵，以此类推，滑动第49个像素的损失矩阵放在最后，这就形成了一个立方体的三维矩阵。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/square.jpg" alt="square"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/square.jpg" alt="square"></p>
 <p>现在就可以检查同50个损失矩阵中的相同位置的大小，其本质是比较一个三维矩阵的第三个维度上的的最小值，在最小值所处的滑动次数，就是该像素的<strong>视差值</strong>。</p>
 <p>例如，如图所示，比较50个损失矩阵最左上角的大小，假设第3个损失矩阵（滑动3像素）的左上角值最小，左上角的视差值为3。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/which.jpg" alt="which"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/which.jpg" alt="which"></p>
 <p>由于之前做过添加-1的处理，所以写程序的时候结合-1的特殊，可以跳过-1的部分，直接找出非负数中最小的值。</p>
 <p>通过查找所有损失矩阵最小的损失之后会形成一张新的图，该图为最终视差图。</p>
-<p><img src="/2021/01/19/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/img.png" alt="img"></p>
+<p><img src="/2021/02/26/%E5%8D%B7%E7%A7%AF%E5%8F%8C%E7%9B%AE%E5%8C%B9%E9%85%8D/img.png" alt="img"></p>
 <h4 id="python程序-2"><a href="#python程序-2" class="headerlink" title="python程序"></a>python程序</h4><ul>
 <li>补上损失矩阵缺失部分</li>
 </ul>
@@ -371,12 +371,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/18/pytorch%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" rel="prev" title="pytorch安装方法及遇到的问题">
-      <i class="fa fa-chevron-left"></i> pytorch安装方法及遇到的问题
+    <a href="/2021/02/21/%E8%BF%99%E5%B0%B1%E6%98%AF%E6%88%91%E7%9A%84%E4%BF%A1%E6%9D%A1/" rel="prev" title="这就是我的信条">
+      <i class="fa fa-chevron-left"></i> 这就是我的信条
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/28/%E5%88%B6%E4%BD%9CMinecraft%E6%95%B0%E6%8D%AE%E5%8C%85/" rel="next" title="制作Minecraft数据包">
-      制作Minecraft数据包 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/03/04/%E6%88%91%E7%9A%84java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="我的java学习笔记">
+      我的java学习笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
