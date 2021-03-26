@@ -30,12 +30,15 @@
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/20210207195622.jpg">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/20191020111518954.jpg">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/2019.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/1437686-20200102124439991-778619867.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/1437686-20191230192708001-430020660.png">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/10201.jpg">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/0111.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/1437686-20200102121153977-382469172.png">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/20190509224534499.png">
 <meta property="og:image" content="https://magic-matrix.gitee.io/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/8694a4c27d1ed21bc6ed15f6c38952c250da3fee.jpeg">
 <meta property="article:published_time" content="2021-02-06T06:13:36.000Z">
-<meta property="article:modified_time" content="2021-02-08T01:17:48.447Z">
+<meta property="article:modified_time" content="2021-03-26T02:31:53.031Z">
 <meta property="article:author" content="Matrix">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="深度学习">
@@ -225,7 +228,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-08 09:17:48" itemprop="dateModified" datetime="2021-02-08T09:17:48+08:00">2021-02-08</time>
+                <time title="修改时间：2021-03-26 10:31:53" itemprop="dateModified" datetime="2021-03-26T10:31:53+08:00">2021-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,9 +252,14 @@
 
       
         <p>YOLO是“You Only Look Once”的缩写，YOLO将物体检测作为回归问题求解，是一个对象检测算法的名字，这是Redmon等人在2016年的一篇研究论文中命名的。</p>
-<p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/20210207195622.jpg" alt="20191020111518954"></p>
+<p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/20210207195622.jpg" alt="20191020111518954" style="zoom:50%;"></p>
 <p>本篇文章会一步一步搭建起yolov3的神经网络，详细内容会具体分析。</p>
 <a id="more"></a>
+<h2 id="YOLO介绍"><a href="#YOLO介绍" class="headerlink" title="YOLO介绍"></a>YOLO介绍</h2><p>目标检测（object detection）是一个因近年来深度学习的发展而受益颇多的领域，近年来，人们开发了多种目标检测算法，其中包括YOLO、SSD、Mask-RCNN和RetinaNet。此篇文章使用PyTorch并基于YOLO v3来实现一个目标检测器，这是一种速度更快的目标检测算法。</p>
+<p>YOLO是“You Only Look Once”的缩写，YOLO将物体检测作为回归问题求解，是一个对象检测算法的名字，这是Redmon等人在2016年的一篇研究论文中命名的：</p>
+<blockquote>
+<p><strong><em>Redmon J , Divvala S , Girshick R , et al. You Only Look Once: Unified, Real-Time Object Detection[J]. 2015.</em></strong></p>
+</blockquote>
 <h2 id="YOLO结构"><a href="#YOLO结构" class="headerlink" title="YOLO结构"></a>YOLO结构</h2><p>以下为yolo的整体结构：</p>
 <p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/20191020111518954.jpg" alt="20191020111518954"></p>
 <p>这张图分成两部分，左边虚线框起来的是<strong>主干特征提取</strong>部分。</p>
@@ -260,6 +268,9 @@
 <p>经过下采样之后，会获得<strong>特征层</strong>（用来表述图片的特征），下图是我们需要的特征层。</p>
 <p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/2019.jpg" alt="2019"></p>
 <p>由此可见保留下来的特征层为：$52<em>52</em>256$、$26<em>26</em>512$、$13<em>13</em>1024$三种尺寸，这三种特征层是即将传入右边的部分。</p>
+<p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/1437686-20200102124439991-778619867.png" alt="1437686-20200102124439991-778619867"></p>
+<p>每个特征图可以看作一个“条目”，因为一个“条目”有一些信息，如下图所示：</p>
+<p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/1437686-20191230192708001-430020660.png" alt="1437686-20191230192708001-430020660"></p>
 <h3 id="其他部分"><a href="#其他部分" class="headerlink" title="其他部分"></a>其他部分</h3><p>这里的其他部分泛指右边部分的网络。</p>
 <p>经过主干特征提取后，我们获得了三种尺寸的特征层，分别对三种尺寸的特征层处理。</p>
 <h4 id="处理-13131024-特征层"><a href="#处理-13131024-特征层" class="headerlink" title="处理$13131024$特征层"></a>处理$13<em>13</em>1024$特征层</h4><p>首先说一下$13<em>13</em>1024$特征层的处理：</p>
@@ -273,6 +284,20 @@
 <p>后面的部分就一样了，再5次卷积，在最后进行分类预测和回归预测，会出现相同操作。</p>
 <p>与此同时会把5次卷积后继续向上传递，并有个上采样。</p>
 <p>$52<em>52</em>256$特征层同样如此就不再赘述。</p>
+<p>输出结果：</p>
+<p>$t_x$和$t_y$是被检测物体的中心位置，$t_w$和$t_h$是方框的尺寸，$p_0$是<strong>物体置信度</strong>，代表了这个区域内有物体的概率，$p_1-&gt;p_c$是分类置信度，哪类概率高，就属于什么物体。最后还有个B，这个是锚框个数，说明了这个区域可以最多检测出B个物体。</p>
+<h3 id="Anchor-Boxes"><a href="#Anchor-Boxes" class="headerlink" title="Anchor Boxes"></a>Anchor Boxes</h3><p>有的翻译成锚框，有的翻译成先验框，这里我就叫它锚框了。</p>
+<p>YOLO不能直接预测边界框的宽度和高度，这会导致训练过程中出现不稳定的变化。大多数现代目标检测器会预测对数空间转换，或者只是偏移到称为锚点的预定义默认锚框。YOLO-v3具有三个锚点，可在每个细胞单元格上预测三个边界框。</p>
+<p>那么真正的方框是怎么预测出的？先看下面的公式：</p>
+<script type="math/tex; mode=display">
+b_x = \sigma(t_x) + c_x\\
+b_y = \sigma(t_y) + c_y\\
+b_w = p_w e^{t_w}\\
+b_h = p_h e^{t_h}</script><p>前两个公式是预测中心点，经过$\sigma()$函数后就会稳定在0和1之间。$c_x$和$c_y$是第几个方框，例如上图中红色框的这两值都是6。</p>
+<p>后面两个公式预测宽度，$p_w$和$p_h$是锚框的尺寸，直接乘就可以。</p>
+<p>还没有完，这只完成了一半，接着看：</p>
+<p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/1437686-20200102121153977-382469172.png" alt="1437686-20200102121153977-382469172"></p>
+<p>中心点需要还乘上对应的网格宽度，方框需要带入e指数中。</p>
 <p>补一张更漂亮的图。</p>
 <p><img src="/2021/02/06/%E7%94%A8Pytorch%E6%90%AD%E5%BB%BAyolov3/20190509224534499.png" alt="v2-fb8b964727ccfea93345ba1361c4c8a3_720w"></p>
 <h2 id="YOLO预测原理"><a href="#YOLO预测原理" class="headerlink" title="YOLO预测原理"></a>YOLO预测原理</h2><p>YOLO将图片分成了3种检测，检测的区别是按照分割区域的大小。</p>
@@ -413,8 +438,8 @@
       <i class="fa fa-chevron-left"></i> 小米mini路由器刷openwrt
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/02/09/%E4%BD%BF%E7%94%A8PyTorch%E6%90%AD%E5%BB%BAYOLO-v3/" rel="next" title="使用PyTorch搭建YOLO_v3">
-      使用PyTorch搭建YOLO_v3 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/02/10/%E5%AF%B9%E8%AF%9D%E6%B8%B8%E6%88%8F/" rel="next" title="对话游戏">
+      对话游戏 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -474,7 +499,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">YOLO结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E5%B9%B2%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="nav-number">1.1.</span> <span class="nav-text">主干特征提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%83%A8%E5%88%86"><span class="nav-number">1.2.</span> <span class="nav-text">其他部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86-13131024-%E7%89%B9%E5%BE%81%E5%B1%82"><span class="nav-number">1.2.1.</span> <span class="nav-text">处理$13131024$特征层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86-2626512-%E7%89%B9%E5%BE%81%E5%B1%82"><span class="nav-number">1.2.2.</span> <span class="nav-text">处理$2626512$特征层</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO%E9%A2%84%E6%B5%8B%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">YOLO预测原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E7%9A%84%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">初始的卷积层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AE%8B%E5%B7%AE%E5%9D%97"><span class="nav-number">3.2.</span> <span class="nav-text">残差块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="nav-number">3.3.</span> <span class="nav-text">前向传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%89%B9%E5%BE%81%E8%8E%B7%E5%8F%96%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="nav-number">3.4.</span> <span class="nav-text">从特征获取预测结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E4%BD%93%E9%83%A8%E5%88%86%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.4.1.</span> <span class="nav-text">主体部分的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD-1"><span class="nav-number">3.4.2.</span> <span class="nav-text">前向传播</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81"><span class="nav-number">3.5.</span> <span class="nav-text">解码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">YOLO介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">YOLO结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E5%B9%B2%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="nav-number">2.1.</span> <span class="nav-text">主干特征提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%83%A8%E5%88%86"><span class="nav-number">2.2.</span> <span class="nav-text">其他部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86-13131024-%E7%89%B9%E5%BE%81%E5%B1%82"><span class="nav-number">2.2.1.</span> <span class="nav-text">处理$13131024$特征层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86-2626512-%E7%89%B9%E5%BE%81%E5%B1%82"><span class="nav-number">2.2.2.</span> <span class="nav-text">处理$2626512$特征层</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anchor-Boxes"><span class="nav-number">2.3.</span> <span class="nav-text">Anchor Boxes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO%E9%A2%84%E6%B5%8B%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">YOLO预测原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E7%9A%84%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="nav-number">4.1.</span> <span class="nav-text">初始的卷积层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AE%8B%E5%B7%AE%E5%9D%97"><span class="nav-number">4.2.</span> <span class="nav-text">残差块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="nav-number">4.3.</span> <span class="nav-text">前向传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%89%B9%E5%BE%81%E8%8E%B7%E5%8F%96%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="nav-number">4.4.</span> <span class="nav-text">从特征获取预测结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E4%BD%93%E9%83%A8%E5%88%86%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.4.1.</span> <span class="nav-text">主体部分的初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD-1"><span class="nav-number">4.4.2.</span> <span class="nav-text">前向传播</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E7%A0%81"><span class="nav-number">4.5.</span> <span class="nav-text">解码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -490,7 +515,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
