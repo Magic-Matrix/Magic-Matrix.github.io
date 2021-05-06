@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"magic-matrix.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="我很喜欢 arduboy 这个小东西，但一开始我对 arduino 抵触很大，所以有点看不起 arduino，但这几天我不得不说：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的MatrixGame">
+<meta property="og:url" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/index.html">
+<meta property="og:site_name" content="MatrixBlog">
+<meta property="og:description" content="我很喜欢 arduboy 这个小东西，但一开始我对 arduino 抵触很大，所以有点看不起 arduino，但这几天我不得不说：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/inaimg.jpeg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/Arduboy_03.jpg">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/Schematic_MatrixBoy.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-22-00.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-22-26.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-33-52.png">
+<meta property="og:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-34-06.png">
+<meta property="article:published_time" content="2021-04-20T09:01:17.000Z">
+<meta property="article:modified_time" content="2021-04-28T02:32:58.966Z">
+<meta property="article:author" content="Matrix">
+<meta property="article:tag" content="单片机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/inaimg.jpeg">
+
+<link rel="canonical" href="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>我的MatrixGame | MatrixBlog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+
+
+
+
+    <!-- 页面点击小红心 -->
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MatrixBlog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-game">
+
+    <a href="/game/" rel="section"><i class="fa fa-fw fa-legal"></i>游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-recommend">
+
+    <a href="/recommend/" rel="section"><i class="fa fa-fw fa-exchange"></i>推荐</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="Matrix">
+      <meta itemprop="description" content="梦里不知身是客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MatrixBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我的MatrixGame
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-20 17:01:17" itemprop="dateCreated datePublished" datetime="2021-04-20T17:01:17+08:00">2021-04-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-28 10:32:58" itemprop="dateModified" datetime="2021-04-28T10:32:58+08:00">2021-04-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83%E4%BC%9A/" itemprop="url" rel="index"><span itemprop="name">我的发布会</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>我很喜欢 arduboy 这个小东西，但一开始我对 arduino 抵触很大，所以有点看不起 arduino，但这几天我不得不说：</p>
+<p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/inaimg.jpeg" alt="inaimg"></p>
+<a id="more"></a>
+<p>我之所以看不起arduino就是因为总有一部分人认为自己会个arduino编程就以为自己可以挑战嵌入式，与其说讨厌arduino，不如说讨厌这群人……好了，废话少说，开始介绍这段时间的项目。</p>
+<p>我是打算制作arduboy的，说真的这个小东西还真是优雅。</p>
+<p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/Arduboy_03.jpg" alt="Arduboy_03"></p>
+<p>这款游戏机主要芯片为 ATmega32u4 ，性能肯定没有stm32强悍，当然还是AVR加购，我是有考虑要不要将这个库移植到stm32上去，但我没有那么多时间，还是不要自己造轮子了。</p>
+<p>绘制PCB使用的是立创EDA，本来是使用的AD的，但我意外发现立创EDA格外的好用，而且我在嘉立创打样，所以整体下来轻松了不少。</p>
+<p>就这样，开始了这个项目，接下来我会介绍我制作每个版本的特点。</p>
+<h2 id="MatrixGame-V1"><a href="#MatrixGame-V1" class="headerlink" title="MatrixGame_V1"></a>MatrixGame_V1</h2><p>这是，梦开始的地方……</p>
+<p>绘制一个原理图：</p>
+<p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/Schematic_MatrixBoy.png" alt="Schematic_MatrixBoy"></p>
+<p>这是最初的板子原理图，有很多bug，但在这个原理图之前已经修改过来了。</p>
+<p>于是就开始绘制PCB：</p>
+<p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-22-00.png" alt="2021-04-24_17-22-00" style="zoom:50%;"></p>
+<p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-22-26.png" alt="2021-04-24_17-22-26" style="zoom:50%;"></p>
+<p>这一代板子有个致命的错误，我把电源画反了，导致第一次上电直接冒烟了（唉，差点废一个芯片）。</p>
+<p>而且我的TYPE-C母座和绘制的封装买的有点不一致，基本焊不上，而且TYPE-C是双向的接口，可以正插和反插，但这个有个问题是使用的是交替接的引脚，所以USB直接不能用。</p>
+<p>整体下来，上面的错误就是本次最大的错误，整体下来是能运行的。</p>
+<h2 id="MatrixGame-V2"><a href="#MatrixGame-V2" class="headerlink" title="MatrixGame_V2"></a>MatrixGame_V2</h2><p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-33-52.png" alt="2021-04-24_17-33-52" style="zoom:50%;"></p>
+<p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/2021-04-24_17-34-06.png" alt="2021-04-24_17-34-06" style="zoom:50%;"></p>
+<p>这一代有很大的改变，首先原先的错误修复了过来，原先的按键地方已经掏空，打算使用新的按键（新按键按着很舒服）；其次，部分元器件位置有所调整 ，这样下来布线就会更好一点，当然接下来我会继续修改这些位置。最后去掉了两个灯，因为没什么用，浪费，还难看。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Matrix 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Matrix 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 单片机</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/PID%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" rel="prev" title="PID控制算法详解">
+      <i class="fa fa-chevron-left"></i> PID控制算法详解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/3d%E6%89%93%E5%8D%B0%E6%9C%BA%EF%BC%8C%E8%B5%B7%E9%A3%9E%EF%BC%81%EF%BC%81/" rel="next" title="3d打印机，起飞！！">
+      3d打印机，起飞！！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MatrixGame-V1"><span class="nav-number">1.</span> <span class="nav-text">MatrixGame_V1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MatrixGame-V2"><span class="nav-number">2.</span> <span class="nav-text">MatrixGame_V2</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Matrix"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">Matrix</p>
+  <div class="site-description" itemprop="description">梦里不知身是客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Magic-Matrix" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Magic-Matrix" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/97371740" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;97371740" rel="noopener" target="_blank"><i class="fa fa-fw fa-laptop"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1391259110&auto=0&height=66"></iframe>
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Matrix</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
