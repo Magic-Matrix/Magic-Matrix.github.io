@@ -1,1218 +1,320 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"magic-matrix.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="梦里不知身是客">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MatrixBlog</title><meta name="author" content="Matrix"><meta name="copyright" content="Matrix"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="梦里不知身是客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MatrixBlog">
 <meta property="og:url" content="https://magic-matrix.gitee.io/index.html">
 <meta property="og:site_name" content="MatrixBlog">
 <meta property="og:description" content="梦里不知身是客">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://magic-matrix.gitee.io/img/avatar.jpg">
 <meta property="article:author" content="Matrix">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://magic-matrix.gitee.io/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>MatrixBlog</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="https://magic-matrix.gitee.io/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://magic-matrix.gitee.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MatrixBlog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-10-14 15:07:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-
-
-
-
-    <!-- 页面点击小红心 -->
-    <script type="text/javascript" src="/js/clicklove.js"></script>
-
-
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">MatrixBlog</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-game">
-
-    <a href="/game/" rel="section"><i class="fa fa-fw fa-legal"></i>游戏</a>
-
-  </li>
-        <li class="menu-item menu-item-recommend">
-
-    <a href="/recommend/" rel="section"><i class="fa fa-fw fa-exchange"></i>推荐</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/05/%E5%85%B3%E4%BA%8E%E6%88%91%E5%8D%9A%E5%AE%A2%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/%E5%85%B3%E4%BA%8E%E6%88%91%E5%8D%9A%E5%AE%A2%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" class="post-title-link" itemprop="url">关于我博客移植到小程序上的那些事</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-17 08:55:13 / 修改时间：16:20:37" itemprop="dateCreated datePublished" datetime="2021-05-17T08:55:13+08:00">2021-05-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">搭建博客</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>如题，我打算把我自己的博客移植，因为感觉有时候从手机上甩给别人一个链接不方便，还是微信小程序更方便一些。</p>
-<p><img src="/2021/05/%E5%85%B3%E4%BA%8E%E6%88%91%E5%8D%9A%E5%AE%A2%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/fc3cd489ab144017a145f2d3170w.jpg" alt="fc3cd489ab144017a145f2d3170w" style="zoom: 67%;"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/%E5%85%B3%E4%BA%8E%E6%88%91%E5%8D%9A%E5%AE%A2%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/05/%E9%82%A3%E4%BA%9B%E5%B9%B4%EF%BC%8C%E6%88%91%E7%8E%A9%E7%9A%84C++/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/%E9%82%A3%E4%BA%9B%E5%B9%B4%EF%BC%8C%E6%88%91%E7%8E%A9%E7%9A%84C++/" class="post-title-link" itemprop="url">那些年，我玩的C++</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-04 09:46:00" itemprop="dateCreated datePublished" datetime="2021-05-04T09:46:00+08:00">2021-05-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-31 14:52:16" itemprop="dateModified" datetime="2021-05-31T14:52:16+08:00">2021-05-31</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">Matrix的笔记本</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我尝试过很多使用C++版本的东西，opencv、libtorch、qt，不得不说真的快，所以这篇文章来谈谈，在Clion 上折腾的一些东西。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/%E9%82%A3%E4%BA%9B%E5%B9%B4%EF%BC%8C%E6%88%91%E7%8E%A9%E7%9A%84C++/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/04/3d%E6%89%93%E5%8D%B0%E6%9C%BA%EF%BC%8C%E8%B5%B7%E9%A3%9E%EF%BC%81%EF%BC%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/3d%E6%89%93%E5%8D%B0%E6%9C%BA%EF%BC%8C%E8%B5%B7%E9%A3%9E%EF%BC%81%EF%BC%81/" class="post-title-link" itemprop="url">3d打印机，起飞！！</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-28 10:21:39" itemprop="dateCreated datePublished" datetime="2021-04-28T10:21:39+08:00">2021-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-06 17:23:37" itemprop="dateModified" datetime="2021-05-06T17:23:37+08:00">2021-05-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83%E4%BC%9A/" itemprop="url" rel="index"><span itemprop="name">我的发布会</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我终于做好了一台3d打印机！！</p>
-<p><img src="/2021/04/3d%E6%89%93%E5%8D%B0%E6%9C%BA%EF%BC%8C%E8%B5%B7%E9%A3%9E%EF%BC%81%EF%BC%81/fun.jpeg" alt="fun" style="zoom:50%;"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/3d%E6%89%93%E5%8D%B0%E6%9C%BA%EF%BC%8C%E8%B5%B7%E9%A3%9E%EF%BC%81%EF%BC%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/04/%E6%88%91%E7%9A%84MatrixGame/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/%E6%88%91%E7%9A%84MatrixGame/" class="post-title-link" itemprop="url">我的MatrixGame</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-20 17:01:17" itemprop="dateCreated datePublished" datetime="2021-04-20T17:01:17+08:00">2021-04-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-28 10:32:58" itemprop="dateModified" datetime="2021-04-28T10:32:58+08:00">2021-04-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83%E4%BC%9A/" itemprop="url" rel="index"><span itemprop="name">我的发布会</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我很喜欢 arduboy 这个小东西，但一开始我对 arduino 抵触很大，所以有点看不起 arduino，但这几天我不得不说：</p>
-<p><img src="/2021/04/%E6%88%91%E7%9A%84MatrixGame/inaimg.jpeg" alt="inaimg"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/%E6%88%91%E7%9A%84MatrixGame/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/04/PID%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/PID%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">PID控制算法详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-03 20:26:27 / 修改时间：22:06:15" itemprop="dateCreated datePublished" datetime="2021-04-03T20:26:27+08:00">2021-04-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A5%87%E5%A6%99%E7%9A%84%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">奇妙的原理</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>PID控制算法可以说是我比较早听说的算法了，但几年前我并不太了解原理，我只能按照公式敲除代码，但经过考研之后，我的高数进一步提高，有些东西我逐渐看透了。</p>
-<p><img src="/2021/04/PID%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/bsuitang.jpeg" alt="bsuitang" style="zoom: 33%;"></p>
-<p>本篇文章我将详细讲解我对PID控制算法理解。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/PID%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/04/Python%E7%9A%84%E5%85%A8%E9%83%A8%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/Python%E7%9A%84%E5%85%A8%E9%83%A8%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Python的全部内置方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-02 15:18:41 / 修改时间：16:25:02" itemprop="dateCreated datePublished" datetime="2021-04-02T15:18:41+08:00">2021-04-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">Matrix的笔记本</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>当用Python定义一个类的时候，其实有一些固定的方法，这些方法是固定的，当然程序员是可以根据自己的需求去更改。</p>
-<p>每次我在使用这些方法的时候，我还需要去自己去查，很麻烦，因此我打算总结一套全部的内置方法。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/Python%E7%9A%84%E5%85%A8%E9%83%A8%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/03/%E5%AE%89%E8%A3%85Keras/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/%E5%AE%89%E8%A3%85Keras/" class="post-title-link" itemprop="url">安装Keras</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-22 09:48:52" itemprop="dateCreated datePublished" datetime="2021-03-22T09:48:52+08:00">2021-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-26 10:37:34" itemprop="dateModified" datetime="2021-03-26T10:37:34+08:00">2021-03-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我早就想试一下其他框架了，只用Pytorch感觉学到的东西太少，网上很多都是使用Keras，这个框架会更轻便一些，我也看过这个框架代码，感觉可以少写三分之二的程序，所以安装一下吧。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/%E5%AE%89%E8%A3%85Keras/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/03/%E5%9F%BA%E4%BA%8EPytorch%E6%90%AD%E5%BB%BA%E7%9A%84%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/%E5%9F%BA%E4%BA%8EPytorch%E6%90%AD%E5%BB%BA%E7%9A%84%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">基于Pytorch搭建的物体检测神经网络</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-19 08:52:11" itemprop="dateCreated datePublished" datetime="2021-03-19T08:52:11+08:00">2021-03-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-26 10:37:12" itemprop="dateModified" datetime="2021-03-26T10:37:12+08:00">2021-03-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>去年的时候，老师说我可以尝试搭建一个物体检测的神经网络，要求是按照自己的想法去搭建，这我就很开心了，毕竟是属于我自己的神经网络。</p>
-<p><img src="/2021/03/%E5%9F%BA%E4%BA%8EPytorch%E6%90%AD%E5%BB%BA%E7%9A%84%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/2810634837.jpg" alt="2810634837" style="zoom:50%;"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/%E5%9F%BA%E4%BA%8EPytorch%E6%90%AD%E5%BB%BA%E7%9A%84%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/03/Git%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/Git%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Git的详细教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-11 18:47:57" itemprop="dateCreated datePublished" datetime="2021-03-11T18:47:57+08:00">2021-03-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-25 16:30:07" itemprop="dateModified" datetime="2021-03-25T16:30:07+08:00">2021-03-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">Matrix的笔记本</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>是时候整理一下Git命令了，以前总是单独去使用，太不方便了，这次我就直接整理一份，方便以后直接使用。</p>
-<p><img src="/2021/03/Git%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/duitang.jpeg" alt="duitang"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/Git%E7%9A%84%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://magic-matrix.gitee.io/2021/03/%E6%88%91%E7%9A%84java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="Matrix">
-      <meta itemprop="description" content="梦里不知身是客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MatrixBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/%E6%88%91%E7%9A%84java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">我的java学习笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-04 21:25:51 / 修改时间：21:56:44" itemprop="dateCreated datePublished" datetime="2021-03-04T21:25:51+08:00">2021-03-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/" itemprop="url" rel="index"><span itemprop="name">Matrix的笔记本</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这是我当初学习java时的一些笔记，这几天翻出来看了一下，感觉可以作为一些参考，由于当时我有C/C++的基础，所以学习的速度非常快，有些地方直接和C/C++进行了对比，所以在观看的时候最好有一些编程基础。</p>
-<blockquote>
-<p><em>语言只是算法的载体，会得再多，也仅仅是获得了一个又一个躯壳，真正称得上灵魂的是算法，一个没有灵魂的躯壳，只能算一个行尸走肉。</em></p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/%E6%88%91%E7%9A%84java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
   }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Matrix"
-      src="/images/header.jpg">
-  <p class="site-author-name" itemprop="name">Matrix</p>
-  <div class="site-description" itemprop="description">梦里不知身是客</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">24</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Magic-Matrix" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Magic-Matrix" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/97371740" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;97371740" rel="noopener" target="_blank"><i class="fa fa-fw fa-laptop"></i>Bilibili</a>
-      </span>
-  </div>
-
-
-
-      </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1391259110&auto=0&height=66"></iframe>
-    </div>
-
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Matrix</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-  <script defer src="/lib/three/three.min.js"></script>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
+        localStorage.setItem(key, JSON.stringify(item))
       },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="MatrixBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/background.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MatrixBlog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">MatrixBlog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Magic-Matrix" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/97371740" target="_blank" title="bilibili"><i class="fas fa-address-card"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/09/%E5%88%A9%E7%94%A8Opencv%E8%BF%9B%E8%A1%8C%E5%8F%8C%E7%9B%AE%E6%A0%87%E5%AE%9A/" title="利用Opencv进行双目标定">     <img class="post_bg" src="/img/images/img14.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用Opencv进行双目标定"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/%E5%88%A9%E7%94%A8Opencv%E8%BF%9B%E8%A1%8C%E5%8F%8C%E7%9B%AE%E6%A0%87%E5%AE%9A/" title="利用Opencv进行双目标定">利用Opencv进行双目标定</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-28T07:36:08.000Z" title="发表于 2021-09-28 15:36:08">2021-09-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/">机器视觉</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E6%88%90%E5%83%8F/">双目立体成像</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%8E%9F%E7%90%86/">原理</a></span></div><div class="content">前段时间进行了摄像头标定，我使用过matlab直接标定，效果感觉还可以。那么这次纯粹是使用Opencv来进行一次标定。
+
+准备标定板标定板是必不可少的，这里我说明一下，建议使用长宽不等的标定板，这样可以避免出现错误的姿态误差。比如我下面准备的图片。
+
+我是直接打印出来，其实并不建议直接打印，因为我打印出来后发现整张纸有点潮，晾干后不太平整，所以并不太建议直接打印。
+标定程序先说一下步骤：
+
+定位出图片中所有的角点
+利用所有的角点去进行单目标定
+利用所有的角点去进行双目标定
+
+定位角点当然，在找点前需要把图片导进来，导进来是一个 numpy 的矩阵，形状为(h, w, 3)。
+接下来我就直接定义了个函数，用来专门定位。
+这个函数简单介绍一下，有两个参数：
+
+image是图片的矩阵
+size是标定板的角点的尺寸，上面的那张标定图就是(11, 8)
+
+返回值就只有两种可能，如果能找到就直接返回点，找不到就返回None。
+程序如下：
+1234567891011121314151617181920212223def cornerFind(image, size):    &quot;&quot; ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91/" title="Java多线程并发">     <img class="post_bg" src="/img/images/img8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java多线程并发"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91/" title="Java多线程并发">Java多线程并发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-11T05:40:35.000Z" title="发表于 2021-07-11 13:40:35">2021-07-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/">Matrix的笔记本</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content">一些基本概念为了防止单个程序发生阻塞的现象，所以必须使用多线程或进程来解决此类问题。
+进程在操作系统中运行的的程序会占用一个进程，进程主要在执行一个程序的过程中，系统会分配给的一些资源给此进程进行执行一些程序，主要针对于硬件产生的一种并发。
+是系统资源分配的基本单位。
+线程一个进程中会分配多个线程，用来是提高某个程序高并发运行。
+是CPU调度和执行的基本单位，真正多线程是多个CPU（多核）共同执行。
+创建线程三种方式：
+
+继承Thread类（重点）
+使用Runnable接口（重点）
+使用Callable接口（了解）
+
+继承Thread类步骤：
+
+继承Thread类，重写run方法
+实例化对象，使用start()方法启动
+
+测试：
+线程1：
+12345678public class Thread_1 extends Thread&#123;    public void run()&#123;        for(int i=0;i&lt;1000;i++)&#123;            System.out.println(&quot;Thread_1&quot;);       ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/Minecraft%E7%9A%84Mod%E5%BC%80%E5%8F%91/" title="Minecraft的Mod开发">     <img class="post_bg" src="/img/images/img14.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Minecraft的Mod开发"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/Minecraft%E7%9A%84Mod%E5%BC%80%E5%8F%91/" title="Minecraft的Mod开发">Minecraft的Mod开发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T01:07:28.000Z" title="发表于 2021-07-07 09:07:28">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/">Matrix的笔记本</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a></span></div><div class="content">为了使 Minecraft 的 可玩性更高，但数据包的局限性很大，所以开始开发 mod 来进一步增强游戏体验。
+
+我所选择的是 fabric 的 mod 开发，原因如下：
+
+维护方便，没有使用 forge 的最重要原因就是太麻烦，每次更新会有很大的变化，fabric 最大的优点就是仅仅需要改改版本就可以使用。
+开发方便，虽然 fabric 没有 forge 更强大，但很大程度上方便开发，对于我来说，在闲暇之余即可开发。
+
+fabric 的开发环境搭建下载 fabric 的工程模板：GitHub - FabricMC/fabric-example-mod: Example Fabric mod
+下载完毕后，cd到文件目录，运行./gradlew genSources来配置环境。
+（未完待续，可能永远都不能待续了/(ㄒoㄒ)/~~）
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/06/%E5%9B%9E%E9%A1%BE%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="回顾计算机网络">     <img class="post_bg" src="/img/images/img1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="回顾计算机网络"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/06/%E5%9B%9E%E9%A1%BE%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="回顾计算机网络">回顾计算机网络</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-06-19T02:26:00.000Z" title="发表于 2021-06-19 10:26:00">2021-06-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/">Matrix的笔记本</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/java/">java</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="content">我在本科的时候比较系统学习过计算机网络，可惜好久不用了，所以，本篇文章是一个复习的笔记，我就挑一些我将来可能用到的东西去详细复习，所以像什么数据链路层和物理层我就不用去复习了（那部分是真的恶心）。
+IP地址区分局域网或互联网中的计算机设备。
+
+每一台电脑有一个 IP 地址。
+127.0.0.1为本地 localhost
+
+程序测试：
+123456789101112131415161718192021222324252627import java.net.InetAddress;import java.net.UnknownHostException;public class Test &#123;    public static void main(String[] args) &#123;        try&#123;            // 查询本地ip地址            // 可以使用以下方式查询：            // 1. 127.0.0.1            // 2. localhost            // 3. 直接使用.getLoc ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/%E5%85%B3%E4%BA%8E%E6%88%91%E5%8D%9A%E5%AE%A2%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于我博客移植到小程序上的那些事">     <img class="post_bg" src="/img/images/img12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于我博客移植到小程序上的那些事"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/%E5%85%B3%E4%BA%8E%E6%88%91%E5%8D%9A%E5%AE%A2%E7%A7%BB%E6%A4%8D%E5%88%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" title="关于我博客移植到小程序上的那些事">关于我博客移植到小程序上的那些事</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-17T00:55:13.000Z" title="发表于 2021-05-17 08:55:13">2021-05-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">如题，我打算把我自己的博客移植，因为感觉有时候从手机上甩给别人一个链接不方便，还是微信小程序更方便一些。
+
+hexo插件安装首先是需要一个插件的，这个插件的是hexo-generator-restful，作用就是可以将 hexo 中的某些东西可以转换生成 restful 接口供其他地方调用。
+这是一个 restful 风格的 json 文件接口，可以直接去访问这个文件，获得静态网页的信息。
+下面是这个插件在 Github 上的说明：
+https://github.com/yscoder/hexo-generator-restful
+安装打开 CMD，将路径cd到博客下，直接在 CMD 中打入以下命令就可以安装：
+1npm install hexo-generator-restful
+配置首先打开配置文件_config.yaml，可以通过修改配置文件信息来实现其他功能，但最开始还没有这些配置，需要手动复制以下内容：
+12345678910111213141516171819202122232425# 对外APIrestful:  # site 可配置为数组选择性生成某些属性  # sit ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/%E9%82%A3%E4%BA%9B%E5%B9%B4%EF%BC%8C%E6%88%91%E7%8E%A9%E7%9A%84C++/" title="那些年，我玩的C++">     <img class="post_bg" src="/img/images/img12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="那些年，我玩的C++"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/%E9%82%A3%E4%BA%9B%E5%B9%B4%EF%BC%8C%E6%88%91%E7%8E%A9%E7%9A%84C++/" title="那些年，我玩的C++">那些年，我玩的C++</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-04T01:46:00.000Z" title="发表于 2021-05-04 09:46:00">2021-05-04</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/">Matrix的笔记本</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/C/">C++</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="content">我尝试过很多使用C++版本的东西，opencv、libtorch、qt，不得不说真的快，所以这篇文章来谈谈，在Clion 上折腾的一些东西。
+Clion 上使用 OpenCV了解我的人都知道我非常喜欢使用 JetBrains 公司的软件，所以使用C++的时候选择了 Clion ，但这款软件使用 OpenCV 的时候有些麻烦，我也是好不容易克服了这些。
+因为 Clion 使用的是 CMake 来管理编译环境，所以我先写一下我使用的时候怎么配置的CMakeLists.txt文件：
+123456789101112131415161718cmake_minimum_required(VERSION 3.16)# 修改这个地方，用来直接设置项目名称set(MY_PROJECT_NAME OpenCV)# 修改这个地方，可以直接设置 OpenCV 的路径set(OpenCV_DIR &quot;D:\\Software\\Languages\\C++\\opencv\\mingw-build\\install&quot;)set(CMAKE_CXX_STANDARD 14)set(OpenCV_L ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/3d%E6%89%93%E5%8D%B0%E6%9C%BA%EF%BC%8C%E8%B5%B7%E9%A3%9E%EF%BC%81%EF%BC%81/" title="3d打印机，起飞！！">     <img class="post_bg" src="/img/images/img5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3d打印机，起飞！！"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/3d%E6%89%93%E5%8D%B0%E6%9C%BA%EF%BC%8C%E8%B5%B7%E9%A3%9E%EF%BC%81%EF%BC%81/" title="3d打印机，起飞！！">3d打印机，起飞！！</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-28T02:21:39.000Z" title="发表于 2021-04-28 10:21:39">2021-04-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83%E4%BC%9A/">我的发布会</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a></span></div><div class="content">我终于做好了一台3d打印机！！
+
+说到底最重要的是打印机的程序，我直接使用了开源的 Marlin，这样我还可以在这基础上添加我自己的程序。
+配置Marlin固件说来有意思，我最近在整一些arduino的东西，没想到Marlin固件也是基于arduino而开发，这就省事了好多，所以直接下载Marlin就行了源代码就可以了。
+Marlin官网：http://marlinfw.org/
+我下载的是1.1.9.1版本的固件，实际上是无所谓，也就是多多少少有些地方会有所不同。
+
+下载之后会有一个 arduino 项目文件，所以直接使用 arduino IDE 打开就可以。
+这个项目中其他文件尽量不要去修改，因为涉及到一些单片机的程序，当然我肯定会自己修改，毕竟我是
+
+当然，有个文件还是需要修改的，找到Configuration.h，你可以叫这个文件为配置文件（好low的名字），打开之后，如果你会 C/C++ 的话，你就会发现里面全是宏定义，这就有意思了（我超爱宏定义的）。
+接下来我会说一下比较重要或需要修改的宏定义。
+串口设置这个主板与电脑通信使用的是串口通信，所以需要设置一下端口号：
+1#de ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/04/%E6%88%91%E7%9A%84MatrixGame/" title="我的MatrixGame">     <img class="post_bg" src="/img/images/img3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的MatrixGame"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/%E6%88%91%E7%9A%84MatrixGame/" title="我的MatrixGame">我的MatrixGame</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-20T09:01:17.000Z" title="发表于 2021-04-20 17:01:17">2021-04-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83%E4%BC%9A/">我的发布会</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a></span></div><div class="content">我很喜欢 arduboy 这个小东西，但一开始我对 arduino 抵触很大，所以有点看不起 arduino，但这几天我不得不说：
+
+我之所以看不起arduino就是因为总有一部分人认为自己会个arduino编程就以为自己可以挑战嵌入式，与其说讨厌arduino，不如说讨厌这群人……好了，废话少说，开始介绍这段时间的项目。
+我是打算制作arduboy的，说真的这个小东西还真是优雅。
+
+这款游戏机主要芯片为 ATmega32u4 ，性能肯定没有stm32强悍，当然还是AVR加购，我是有考虑要不要将这个库移植到stm32上去，但我没有那么多时间，还是不要自己造轮子了。
+绘制PCB使用的是立创EDA，本来是使用的AD的，但我意外发现立创EDA格外的好用，而且我在嘉立创打样，所以整体下来轻松了不少。
+就这样，开始了这个项目，接下来我会介绍我制作每个版本的特点。
+MatrixGame_V1这是，梦开始的地方……
+绘制一个原理图：
+
+这是最初的板子原理图，有很多bug，但在这个原理图之前已经修改过来了。
+于是就开始绘制PCB：
+
+
+这一代板子有个致命的错误，我把电源画反了，导致第一次上电直接冒烟了 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/PID%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="PID控制算法详解">     <img class="post_bg" src="/img/images/img11.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PID控制算法详解"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/PID%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="PID控制算法详解">PID控制算法详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-03T12:26:27.000Z" title="发表于 2021-04-03 20:26:27">2021-04-03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A5%87%E5%A6%99%E7%9A%84%E5%8E%9F%E7%90%86/">奇妙的原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8E%9F%E7%90%86/">原理</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a></span></div><div class="content">PID控制算法可以说是我比较早听说的算法了，但几年前我并不太了解原理，我只能按照公式敲除代码，但经过考研之后，我的高数进一步提高，有些东西我逐渐看透了。
+
+本篇文章我将详细讲解我对PID控制算法理解。
+首先，什么是PID，估计有人一脸懵逼的进来，还不知道什么是PID吧。
+PID是一个控制算法，小到风扇调速，大到火箭轨道调整，都能有它的痕迹。
+我会根据下面这个视频进一步讲解。
+ 
+
+
+首先我先放出PID的图：
+
+不难发现PID是一个闭环系统，问题来了，什么是闭环系统？什么是开环系统？
+
+开环系统亦称“无反馈系统”，系统的输入影响输出而不受输出影响的系统。简单来讲就是我行我素，我直接输出。
+闭环系统亦称“反馈系统”，系统的输入影响输出同时又受输出的直接或间接影响的系统。简单来讲就是我必须时刻检查我自己的情况，根据我自己的情况来进行输出。
+
+由此可见闭环系统下需要至少一个传感器，用来检查自身情况。自身情况可以这样判断，因为我们需要一个目标值，由于使用了传感器，所以我还有一个检测值，那我就定义了一个变量：
+
+error = 目标值 - 检测值我们可以这样理解 error 这个值，这是一个偏差， ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/04/Python%E7%9A%84%E5%85%A8%E9%83%A8%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" title="Python的全部内置方法">     <img class="post_bg" src="/img/images/img5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python的全部内置方法"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/Python%E7%9A%84%E5%85%A8%E9%83%A8%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" title="Python的全部内置方法">Python的全部内置方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-02T07:18:41.000Z" title="发表于 2021-04-02 15:18:41">2021-04-02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/">Matrix的笔记本</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python/">python</a></span></div><div class="content">当用Python定义一个类的时候，其实有一些固定的方法，这些方法是固定的，当然程序员是可以根据自己的需求去更改。
+每次我在使用这些方法的时候，我还需要去自己去查，很麻烦，因此我打算总结一套全部的内置方法。
+关于对象周期的方法这部分其实主要就是构造方法和析构方法。
+构造方法
+__new__(cls,[...)
+或许大部分人认为构造方法为__init__()，其实在这之前还有一个方法，这个方法在对象实例化的时候调用，而且比__init__()执行的时间还要早，但不经常用，除非特殊情况。
+
+__init__(self,[...])
+这就很常见了，一般用作初始化，注意，形参的参数是决定实例化的时候传进来的参数，所以这很重要，一般都会自己去重写。
+
+
+析构方法
+__del__(self)
+主要是在销毁的时候会调用这个方法，但是需要注意的是，当Python解释器退出但对象仍然存活的时候， __del__()并不会 执行。 所以养成一个手工清理的好习惯是很重要的，比如及时关闭连接。
+
+
+操作符有些方法可以根据操作符执行，利用好的话可以玩出很多花样。
+比较运算符
+__cmp__(self, other ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Matrix</div><div class="author-info__description">梦里不知身是客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Magic-Matrix"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Magic-Matrix" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/97371740" target="_blank" title="bilibili"><i class="fas fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">听听音乐放松一下...</div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="220" height="86" src="//music.163.com/outchain/player?type=2&amp;id=468403475&amp;auto=0&amp;height=66"></iframe></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Matrix%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC/"><span class="card-category-list-name">Matrix的笔记本</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="card-category-list-name">人工智能</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%9D%90%E5%9C%A8%E5%A4%95%E9%98%B3%E4%B8%8B%E7%9A%84%E6%80%9D%E8%80%83/"><span class="card-category-list-name">坐在夕阳下的思考</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A5%87%E5%A6%99%E7%9A%84%E5%8E%9F%E7%90%86/"><span class="card-category-list-name">奇妙的原理</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%88%91%E7%9A%84%E5%8F%91%E5%B8%83%E4%BC%9A/"><span class="card-category-list-name">我的发布会</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"><span class="card-category-list-name">搭建博客</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%B8%B8%E6%8A%98%E8%85%BE/"><span class="card-category-list-name">日常折腾</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/linux/" style="font-size: 1.35em; color: rgb(62, 131, 78)">linux</a><a href="/tags/%E5%AE%89%E8%A3%85/" style="font-size: 1.35em; color: rgb(28, 197, 192)">安装</a><a href="/tags/Minecraft/" style="font-size: 1.15em; color: rgb(177, 192, 197)">Minecraft</a><a href="/tags/%E6%B8%B8%E6%88%8F%E6%8B%93%E5%B1%95/" style="font-size: 1.15em; color: rgb(166, 110, 104)">游戏拓展</a><a href="/tags/%E5%8F%8C%E7%9B%AE%E7%AB%8B%E4%BD%93%E6%88%90%E5%83%8F/" style="font-size: 1.35em; color: rgb(179, 191, 5)">双目立体成像</a><a href="/tags/%E5%8E%9F%E7%90%86/" style="font-size: 1.35em; color: rgb(147, 139, 142)">原理</a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.45em; color: rgb(176, 144, 184)">博客</a><a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 1.15em; color: rgb(135, 75, 179)">美化</a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.25em; color: rgb(64, 56, 63)">前端</a><a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 1.25em; color: rgb(37, 0, 60)">解决问题</a><a href="/tags/python/" style="font-size: 1.45em; color: rgb(18, 88, 109)">python</a><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.25em; color: rgb(92, 12, 134)">深度学习</a><a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 1.25em; color: rgb(77, 82, 155)">图像处理</a><a href="/tags/%E6%88%91%E7%9A%84%E8%B6%85%E7%8E%B0%E5%AE%9E%E4%B8%BB%E4%B9%89%E4%BA%BA%E7%94%9F/" style="font-size: 1.15em; color: rgb(73, 36, 85)">我的超现实主义人生</a><a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.35em; color: rgb(170, 171, 199)">单片机</a><a href="/tags/C/" style="font-size: 1.15em; color: rgb(73, 180, 176)">C++</a><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.15em; color: rgb(11, 157, 154)">人工智能</a><a href="/tags/java/" style="font-size: 1.25em; color: rgb(20, 197, 133)">java</a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.15em; color: rgb(134, 154, 128)">计算机网络</a><a href="/tags/Java/" style="font-size: 1.25em; color: rgb(20, 194, 62)">Java</a><a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 1.15em; color: rgb(188, 44, 7)">游戏</a><a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 1.15em; color: rgb(41, 187, 111)">命令</a></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Matrix</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "梦理不知身是客".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
   } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
+    document.getElementById("subtitle").innerHTML = '梦理不知身是客'
   }
-</script>
+}
 
-    
-
-  
-
-
-</body>
-</html>
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
