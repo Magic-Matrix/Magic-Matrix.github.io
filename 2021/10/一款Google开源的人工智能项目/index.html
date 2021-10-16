@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>一款Google开源的人工智能项目 | MatrixBlog</title><meta name="keywords" content="python,深度学习"><meta name="author" content="Matrix"><meta name="copyright" content="Matrix"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="今天介绍一款Google开源的人工智能项目——Mediapipe。  在这里放出此项目的官网链接：【点击此处进入官网】 Mediapipe是一个基于图的数据处理管线，用于构建使用了多种形式的数据源，如视频、音频、传感器数据以及任何时间序列数据。 下面是提供的该项目名单：     Face Detection) Face Mesh Iris Hands Pose Holistic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一款Google开源的人工智能项目">
+<meta property="og:url" content="https://magic-matrix.gitee.io/2021/10/%E4%B8%80%E6%AC%BEGoogle%E5%BC%80%E6%BA%90%E7%9A%84%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="MatrixBlog">
+<meta property="og:description" content="今天介绍一款Google开源的人工智能项目——Mediapipe。  在这里放出此项目的官网链接：【点击此处进入官网】 Mediapipe是一个基于图的数据处理管线，用于构建使用了多种形式的数据源，如视频、音频、传感器数据以及任何时间序列数据。 下面是提供的该项目名单：     Face Detection) Face Mesh Iris Hands Pose Holistic">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://magic-matrix.gitee.io/img/images/img9.jpg">
+<meta property="article:published_time" content="2021-10-16T09:08:00.000Z">
+<meta property="article:modified_time" content="2021-10-16T10:24:42.510Z">
+<meta property="article:author" content="Matrix">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://magic-matrix.gitee.io/img/images/img9.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://magic-matrix.gitee.io/2021/10/%E4%B8%80%E6%AC%BEGoogle%E5%BC%80%E6%BA%90%E7%9A%84%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%A1%B9%E7%9B%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '一款Google开源的人工智能项目',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-10-16 18:24:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="MatrixBlog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/images/img9.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MatrixBlog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">一款Google开源的人工智能项目</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-16T09:08:00.000Z" title="发表于 2021-10-16 17:08:00">2021-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-10-16T10:24:42.510Z" title="更新于 2021-10-16 18:24:42">2021-10-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="一款Google开源的人工智能项目"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>今天介绍一款Google开源的人工智能项目——Mediapipe。</p>
+<p><img src="https://google.github.io/mediapipe/images/mediapipe_small.png" alt="MediaPipe"></p>
+<p>在这里放出此项目的官网链接：<a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/">【点击此处进入官网】</a></p>
+<p>Mediapipe是一个基于图的数据处理管线，用于构建使用了多种形式的数据源，如视频、音频、传感器数据以及任何时间序列数据。</p>
+<p>下面是提供的该项目名单：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/face_detection"><strong>Face Detection</strong>)</a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/face_mesh"><strong>Face Mesh</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/iris"><strong>Iris</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/hands"><strong>Hands</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/pose"><strong>Pose</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/holistic"><strong>Holistic</strong></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/face_detection_android_gpu_small.gif" alt="face_detection"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/face_mesh_android_gpu_small.gif" alt="face_mesh"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/iris_tracking_android_gpu_small.gif" alt="iris"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/hand_tracking_android_gpu_small.gif" alt="hand"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/pose_tracking_android_gpu_small.gif" alt="pose"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/holistic_tracking_android_gpu_small.gif" alt="hair_segmentation"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/hair_segmentation"><strong>Hair Segmentation</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/object_detection"><strong>Object Detection</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/box_tracking"><strong>Box Tracking</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/instant_motion_tracking"><strong>Instant Motion Tracking</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/objectron"><strong>Objectron</strong></a></th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://google.github.io/mediapipe/solutions/knift"><strong>KNIFT</strong></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/hair_segmentation_android_gpu_small.gif" alt="hair_segmentation"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/object_detection_android_gpu_small.gif" alt="object_detection"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/object_tracking_android_gpu_small.gif" alt="box_tracking"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/instant_motion_tracking_android_small.gif" alt="instant_motion_tracking"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/objectron_chair_android_gpu_small.gif" alt="objectron"></td>
+<td style="text-align:center"><img src="https://google.github.io/mediapipe/images/mobile/template_matching_android_cpu_small.gif" alt="knift"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>所以这个框架很适合二次开发，开发出自己的项目，详细内容就进入官网查看吧。</p>
+<h2 id="Hand"><a href="#Hand" class="headerlink" title="Hand"></a>Hand</h2><p>我自己的一个项目中确实使用到了这个框架，但我只使用过<strong>Hand</strong>项目，接下来我会介绍一下这个项目的使用方法。</p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>这个项目使用了两个网络，一个网络为目标检测，另一个是姿态回归。这个姿态回归的网络还可以直接进行预测是否是“手”，因此虽然有两个网络。</p>
+<p>在视频模式下，在第一次使用目标检测检测到手后，就可以对“手”进行追踪，不断的进行姿态预测，这样可以进一步节省时间。</p>
+<h3 id="21个特征点"><a href="#21个特征点" class="headerlink" title="21个特征点"></a>21个特征点</h3><p>由于是对手进行回归，所以需要了21个手的特征点，如下图所示：</p>
+<p><img src="https://google.github.io/mediapipe/images/mobile/hand_landmarks.png" alt="hand_landmarks.png"></p>
+<p><img src="https://google.github.io/mediapipe/images/mobile/hand_crops.png" alt="hand_crops.png"></p>
+<p>根据自己的需求可以直接查找自己想用的关键点的坐标。</p>
+<h3 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h3><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p><code>Hand</code>提供了三个参数：</p>
+<ul>
+<li><code>STATIC_IMAGE_MODE</code>：<strong>检测模式</strong>，如果是视频检测，设置为<code>False</code>，这样可以追踪，进一步提高速度。</li>
+<li><code>MAX_NUM_HANDS</code>：<strong>手的数量</strong></li>
+<li><code>MIN_DETECTION_CONFIDENCE</code>：<strong>目标检测的置信度</strong></li>
+<li><code>MIN_TRACKING_CONFIDENCE</code>：<strong>姿态检测的置信度</strong></li>
+</ul>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>结果会得到21个点的坐标，每个点有三个坐标x,y,z的三个坐标。</p>
+<p>没想到吧，这个项目还预测了一部分深度信息，这是最有意思的一个东西。它是根据0号点进行预测，单位是像素。但是深度信息没用，我感觉并不太准。</p>
+<p>同时还可以区分左右手。</p>
+<h4 id="程序-1"><a href="#程序-1" class="headerlink" title="程序"></a>程序</h4><p>我拷贝了官方的程序，这里就不再详细讲了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> mediapipe <span class="keyword">as</span> mp</span><br><span class="line">mp_drawing = mp.solutions.drawing_utils</span><br><span class="line">mp_drawing_styles = mp.solutions.drawing_styles</span><br><span class="line">mp_hands = mp.solutions.hands</span><br><span class="line"></span><br><span class="line"><span class="comment"># For static images:</span></span><br><span class="line">IMAGE_FILES = []</span><br><span class="line"><span class="keyword">with</span> mp_hands.Hands(</span><br><span class="line">    static_image_mode=<span class="literal">True</span>,</span><br><span class="line">    max_num_hands=<span class="number">2</span>,</span><br><span class="line">    min_detection_confidence=<span class="number">0.5</span>) <span class="keyword">as</span> hands:</span><br><span class="line">  <span class="keyword">for</span> idx, file <span class="keyword">in</span> <span class="built_in">enumerate</span>(IMAGE_FILES):</span><br><span class="line">    <span class="comment"># Read an image, flip it around y-axis for correct handedness output (see</span></span><br><span class="line">    <span class="comment"># above).</span></span><br><span class="line">    image = cv2.flip(cv2.imread(file), <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># Convert the BGR image to RGB before processing.</span></span><br><span class="line">    results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Print handedness and draw hand landmarks on the image.</span></span><br><span class="line">    print(<span class="string">&#x27;Handedness:&#x27;</span>, results.multi_handedness)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> results.multi_hand_landmarks:</span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line">    image_height, image_width, _ = image.shape</span><br><span class="line">    annotated_image = image.copy()</span><br><span class="line">    <span class="keyword">for</span> hand_landmarks <span class="keyword">in</span> results.multi_hand_landmarks:</span><br><span class="line">      print(<span class="string">&#x27;hand_landmarks:&#x27;</span>, hand_landmarks)</span><br><span class="line">      print(</span><br><span class="line">          <span class="string">f&#x27;Index finger tip coordinates: (&#x27;</span>,</span><br><span class="line">          <span class="string">f&#x27;<span class="subst">&#123;hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width&#125;</span>, &#x27;</span></span><br><span class="line">          <span class="string">f&#x27;<span class="subst">&#123;hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height&#125;</span>)&#x27;</span></span><br><span class="line">      )</span><br><span class="line">      mp_drawing.draw_landmarks(</span><br><span class="line">          annotated_image,</span><br><span class="line">          hand_landmarks,</span><br><span class="line">          mp_hands.HAND_CONNECTIONS,</span><br><span class="line">          mp_drawing_styles.get_default_hand_landmarks_style(),</span><br><span class="line">          mp_drawing_styles.get_default_hand_connections_style())</span><br><span class="line">    cv2.imwrite(</span><br><span class="line">        <span class="string">&#x27;/tmp/annotated_image&#x27;</span> + <span class="built_in">str</span>(idx) + <span class="string">&#x27;.png&#x27;</span>, cv2.flip(annotated_image, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># For webcam input:</span></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">with</span> mp_hands.Hands(</span><br><span class="line">    min_detection_confidence=<span class="number">0.5</span>,</span><br><span class="line">    min_tracking_confidence=<span class="number">0.5</span>) <span class="keyword">as</span> hands:</span><br><span class="line">  <span class="keyword">while</span> cap.isOpened():</span><br><span class="line">    success, image = cap.read()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> success:</span><br><span class="line">      print(<span class="string">&quot;Ignoring empty camera frame.&quot;</span>)</span><br><span class="line">      <span class="comment"># If loading a video, use &#x27;break&#x27; instead of &#x27;continue&#x27;.</span></span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># To improve performance, optionally mark the image as not writeable to</span></span><br><span class="line">    <span class="comment"># pass by reference.</span></span><br><span class="line">    image.flags.writeable = <span class="literal">False</span></span><br><span class="line">    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span><br><span class="line">    results = hands.process(image)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Draw the hand annotations on the image.</span></span><br><span class="line">    image.flags.writeable = <span class="literal">True</span></span><br><span class="line">    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)</span><br><span class="line">    <span class="keyword">if</span> results.multi_hand_landmarks:</span><br><span class="line">      <span class="keyword">for</span> hand_landmarks <span class="keyword">in</span> results.multi_hand_landmarks:</span><br><span class="line">        mp_drawing.draw_landmarks(</span><br><span class="line">            image,</span><br><span class="line">            hand_landmarks,</span><br><span class="line">            mp_hands.HAND_CONNECTIONS,</span><br><span class="line">            mp_drawing_styles.get_default_hand_landmarks_style(),</span><br><span class="line">            mp_drawing_styles.get_default_hand_connections_style())</span><br><span class="line">    <span class="comment"># Flip the image horizontally for a selfie-view display.</span></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;MediaPipe Hands&#x27;</span>, cv2.flip(image, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">if</span> cv2.waitKey(<span class="number">5</span>) &amp; <span class="number">0xFF</span> == <span class="number">27</span>:</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">cap.release()</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post_share"><div class="social-share" data-image="/img/images/img9.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/09/%E5%88%A9%E7%94%A8Opencv%E8%BF%9B%E8%A1%8C%E5%8F%8C%E7%9B%AE%E6%A0%87%E5%AE%9A/"><img class="next-cover" src="/img/images/img14.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">利用Opencv进行双目标定</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Matrix</div><div class="author-info__description">梦里不知身是客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Magic-Matrix"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Magic-Matrix" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/97371740" target="_blank" title="bilibili"><i class="fas fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">听听音乐放松一下...</div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="220" height="86" src="//music.163.com/outchain/player?type=2&amp;id=439142564&amp;auto=0&amp;height=66"></iframe></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hand"><span class="toc-number">1.</span> <span class="toc-text">Hand</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E4%B8%AA%E7%89%B9%E5%BE%81%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">21个特征点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.3.</span> <span class="toc-text">程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-number">1.3.2.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F-1"><span class="toc-number">1.3.3.</span> <span class="toc-text">程序</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Matrix</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
